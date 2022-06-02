@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   height: 80vh;
+  gap: 50px;
 }
 
 .title {
@@ -22,6 +23,23 @@
   font-size: small;
 }
 
+.next {
+  background-color: var(--green);
+  width: 60px;
+  height: 45px;
+  border-radius: 44% 0 0 44%;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+}
+.icon {
+  color: aliceblue;
+  margin-left: 15px;
+}
 @media (min-width: 768px) {
 
 .list {
@@ -29,5 +47,4 @@
   display: flex;
   flex-direction: row;
 }
-
 }
