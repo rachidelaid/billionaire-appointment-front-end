@@ -4,13 +4,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 80vh;
 }
 
 .title {
-  font-family: var(--font-family-bold);
-  font-size: large;
+  font-family: var(--font-bold);
+ 
 }
 
 .list {
+  gap: 30px;
+  flex-direction: column;
+}
+
+.subtitle {
+  color: gray;
+  font-size: small;
+}
+
+@media (min-width: 768px) {
+
+.list {
+  gap: 100px;
   display: flex;
+  flex-direction: row;
+}
+
 }
