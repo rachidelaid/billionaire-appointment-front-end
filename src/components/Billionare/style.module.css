@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  object-fit: fill;
+}
+
+.name {
+  font-family: var(--font-bold);
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  color: var(--light-gray);
+  font-size: small;
+  color: gray;
+}
+
+.bg-circle {
+  background-color: grey;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
