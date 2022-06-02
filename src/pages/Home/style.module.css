@@ -1,0 +1,16 @@
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-family: var(--font-family-bold);
+  font-size: large;
+}
+
+.list {
+  display: flex;
+}
