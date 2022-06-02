@@ -1,9 +1,13 @@
 import React from 'react';
-import Navbar from '../../components/Navbar';
+import style from './style.module.css'
 
 const Home = () => (
-  <div>
-    <Navbar />
+  <div className='container'>
+    <h1 className={style.title}>LATEST MODELS</h1>
+    <div className={style.list}>
+
+    </div>
+    
   </div>
 );
 
