@@ -3,3 +3,97 @@
   justify-content: center;
   align-items: center;
 }
+
+.container {
+  padding: 1rem;
+  background: url("https://raw.githubusercontent.com/orozCoding/billionares-pictures/main/round_pictures/pc_elon.png") no-repeat center, var(--green);
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  background-blend-mode: soft-light;
+}
+
+.information {
+  flex-direction: column;
+}
+
+.heading,
+.description,
+.form {
+  color: #fff;
+}
+
+.heading {
+  font-family: var(--font-bold);
+  letter-spacing: 0.5rem;
+  text-align: center;
+}
+
+.line {
+  width: 40%;
+  margin: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.description {
+  width: 65%;
+  margin-bottom: 1rem;
+}
+
+.form {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.form-child,
+.btn {
+  border: 1px solid #fff;
+  border-radius: 2rem;
+  padding: 1rem;
+  text-align: center;
+  flex: auto;
+}
+
+.form-child {
+  background-color: rgba(151, 191, 15, 0.5);
+}
+
+.btn {
+  background-color: #fff;
+  color: var(--green);
+  grid-column: 1 / span 3;
+  width: 200px;
+  margin: auto;
+}
+
+::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: #fff;
+}
+
+:-ms-input-placeholder {
+  color: #fff;
+}
+
+@media only screen and (max-width: 670px) {
+  .line,
+  .description {
+    width: 90%;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    grid-column: unset;
+    width: unset;
+    margin: unset;
+  }
+}
