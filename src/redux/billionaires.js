@@ -16,11 +16,15 @@ const billionaireSlice = createSlice({
   initialState,
   reducers: {
     next: (state) => {
-      state.current = state.all.slice(state.offset + 3, 3);
+      const start = state.offset + 3;
+      if (start > state.all.length - 1) return;
+      state.current = state.all.slice(start, start + 3);
       state.offset += 3;
     },
     back: (state) => {
-      state.current = state.all.slice(state.offset - 3, 3);
+      const start = state.offset - 3;
+      if (start < 0) return;
+      state.current = state.all.slice(start, start - 3);
       state.offset -= 3;
     },
   },

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './style.module.css';
 import Billionare from '../../components/Billionare';
-import { fetchBillionaires } from '../../redux/billionaires';
+import { fetchBillionaires, next } from '../../redux/billionaires';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -10,6 +10,9 @@ const Home = () => {
     dispatch(fetchBillionaires());
   }, []);
   const data = useSelector((state) => state.billionaires.current);
+  const nextClick = () => {
+    dispatch(next());
+  };
 
   return (
     <div className={style.container}>
@@ -22,7 +25,7 @@ const Home = () => {
         data.map((item) => <Billionare item={item} key={item.name} />)
       }
       </div>
-      <button type="button" className={style.next}>
+      <button type="button" className={style.next} onClick={nextClick}>
         <i className={`bi bi-caret-right ${style.icon}`} />
       </button>
     </div>
