@@ -6,10 +6,8 @@
   height: 80vh;
 }
 
-
 .details {
   max-width: 100%;
-
   flex: 1;
 }
 
@@ -40,7 +38,6 @@
   gap: 0.5em;
 }
 
-
 .back {
   background-color: var(--green);
   width: 60px;
@@ -55,19 +52,20 @@
   cursor: pointer;
   border: none;
 }
+
 .icon {
   color: aliceblue;
   margin-right: 15px;
 }
+
 .container {
-    
   display: flex;
   gap: 30px;
   position: relative;
   flex-direction: column;
 }
+
 .image-section {
-  
   object-fit: fill;
   display: flex;
   flex-direction: column;
@@ -75,6 +73,7 @@
   justify-content: center;
   margin-left: 6%;
 }
+
 .image {
   width: 200px;
   height: 200px;
@@ -85,18 +84,17 @@
   .back {
     bottom: -40px;
   }
+
   .details {
     max-width: 350px;
-  
-  
   }
-  
+
   .image {
     width: 500px;
-    height: 500px;  
+    height: 500px;
   }
+
   .container {
-    
     flex-direction: row;
   }
 }
