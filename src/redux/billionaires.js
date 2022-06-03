@@ -10,6 +10,7 @@ const initialState = {
   all: [],
   current: [],
   offset: 0,
+  total: 0,
 };
 const billionaireSlice = createSlice({
   name: 'billionaires',
@@ -24,7 +25,7 @@ const billionaireSlice = createSlice({
     back: (state) => {
       const start = state.offset - 3;
       if (start < 0) return;
-      state.current = state.all.slice(start, start - 3);
+      state.current = state.all.slice(start, start + 3);
       state.offset -= 3;
     },
   },
@@ -32,6 +33,7 @@ const billionaireSlice = createSlice({
     builder.addCase(fetchBillionaires.fulfilled, (state, action) => {
       state.all = action.payload;
       state.current = action.payload.slice(state.offset, 3);
+      state.total = action.payload.length;
     });
   },
 });
