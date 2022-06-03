@@ -9,28 +9,28 @@ const fetchBillionaires = createAsyncThunk('/message/random', async () => {
 const initialState = {
   all: [],
   current: [],
-  offset: 0
+  offset: 0,
 };
 const billionaireSlice = createSlice({
   name: 'billionaires',
   initialState,
   reducers: {
-    next: (state)=>{
-      state.current = action.payload.slice(state.offset+3,3)
-      state.offset += 3
+    next: (state) => {
+      state.current = state.all.slice(state.offset + 3, 3);
+      state.offset += 3;
     },
-    back: (state)=>{
-      state.current = action.payload.slice(state.offset - 3,3)
-      state.offset -= 3
-    }
+    back: (state) => {
+      state.current = state.all.slice(state.offset - 3, 3);
+      state.offset -= 3;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchBillionaires.fulfilled, (state, action) => {
-       state.all = action.payload;
-       state.current = action.payload.slice(offset,3)
+      state.all = action.payload;
+      state.current = action.payload.slice(state.offset, 3);
     });
   },
 });
-export const { next , back } = billionaireSlice.actions
+export const { next, back } = billionaireSlice.actions;
 export { fetchBillionaires };
 export default billionaireSlice.reducer;

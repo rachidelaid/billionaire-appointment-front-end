@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchBillionaires());
   }, []);
-  const data = useSelector((state) => state.billionaires.all);
+  const data = useSelector((state) => state.billionaires.current);
 
   return (
     <div className={style.container}>
