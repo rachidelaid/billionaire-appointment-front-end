@@ -10,7 +10,7 @@ const postBillionaire = async (form) => {
     data: {},
   };
 
-  const response = await fetch(apiURL, {
+  await fetch(apiURL, {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
@@ -49,9 +49,7 @@ const BillionaireForm = () => {
     e.preventDefault();
     const form = e.target;
     let post = await postBillionaire(form);
-    console.log(post);
     if (post.response.ok) {
-      console.log('aca llegue');
       navigate('/');
     } else if (!post.response.ok) {
       const arr = Object.entries(post.data);
@@ -60,9 +58,9 @@ const BillionaireForm = () => {
     }
   };
 
-  const renderAlert = () => (
+  const renderAlert = (alert) => (
     <div className={`${style['alert-ctn']} ${style['d-flex']} ${style.col}`}>
-      {alert.map((error) => <p className={style['alert-item']}>{`${error[0].toUpperCase()} ${error[1]}`}</p>)}
+      {alert.map((error) => <p key={alert.indexOf(error)} className={style['alert-item']}>{`${error[0].toUpperCase()} ${error[1]}`}</p>)}
     </div>
   );
 
@@ -70,25 +68,25 @@ const BillionaireForm = () => {
     <div className={`${style['d-flex']} ${style.col}`}>
       {alert ? renderAlert() : null}
       <form onSubmit={handleSubmit} className={`${style['d-flex']} ${style.col} ${style['form-ctn']}`}>
-        <label>
+        <label htmlFor="name">
           Name:
           <input type="text" name="name" />
         </label>
-        <label>
+        <label htmlFor="title">
           Title:
           <input type="text" name="title" />
         </label>
-        <label>
+        <label htmlFor="price">
           Price:
           <input type="number" name="price" step=".01" />
         </label>
-        <label>
+        <label htmlFor="image">
           image:
           <input type="text" name="image" />
         </label>
-        <label>
+        <label htmlFor="description">
           description:
-          <input type="text" name="description" />
+          <input type="textarea" name="description" />
         </label>
         <input type="submit" value="Submit" />
       </form>
