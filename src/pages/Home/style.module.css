@@ -36,7 +36,6 @@
   border: none;
 }
 
-
 .icon {
   color: aliceblue;
   margin-left: 15px;
@@ -56,11 +55,11 @@
   cursor: pointer;
   border: none;
 }
+
 .back-icon {
   color: aliceblue;
   margin-right: 15px;
 }
-
 
 @media (min-width: 768px) {
   .list {
