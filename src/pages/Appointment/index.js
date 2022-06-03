@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './style.module.css';
-import handleErrors from './helper';
+import handleErrors, { billionaires } from './helper';
 
 const Appointment = () => {
   const [city, setCity] = useState('');
@@ -55,18 +55,7 @@ const Appointment = () => {
             <option value="" disabled>
               Billionaires List
             </option>
-            <option value="1">
-              Ariel Camus
-            </option>
-            <option value="2">
-              Bill Gates
-            </option>
-            <option value="3">
-              Francoise Meyers
-            </option>
-            <option value="4">
-              Jack Ma
-            </option>
+            {billionaires.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
           </select>
           <input
             className={style['form-child']}
