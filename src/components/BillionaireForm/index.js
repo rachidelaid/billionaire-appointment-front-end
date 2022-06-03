@@ -2,22 +2,21 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './style.module.css';
 
-const apiURL = 'http://localhost:3000/api/billionaires'
+const apiURL = 'http://localhost:3000/api/billionaires';
 
 const postBillionaire = async (form) => {
-
-  let result = {
+  const result = {
     response: {},
-    data: {}
-  }
+    data: {},
+  };
 
-  const response = await fetch(apiURL, {
+  await fetch(apiURL, {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
     credentials: 'same-origin',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
 
     },
     redirect: 'follow',
@@ -27,8 +26,8 @@ const postBillionaire = async (form) => {
       title: form.title.value,
       price: form.price.value,
       image: form.image.value,
-      description: form.description.value
-    })
+      description: form.description.value,
+    }),
   })
     .then((resp) => {
       result.response = resp;
@@ -37,73 +36,61 @@ const postBillionaire = async (form) => {
     .then((data) => {
       result.data = data;
       return data;
-    })
+    });
 
   return result;
-}
+};
 
 const BillionaireForm = () => {
-
   const [alert, setAlert] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let form = e.target
-    let post = await postBillionaire(form)
-    console.log(post);
+    const form = e.target;
+    let post = await postBillionaire(form);
     if (post.response.ok) {
-      console.log('aca llegue');
-      navigate('/')
-      console.log('Redirect to proper route');
+      navigate('/');
     } else if (!post.response.ok) {
-      console.log(post);
-      let arr = Object.entries(post.data)
+      const arr = Object.entries(post.data);
       setAlert(arr);
       post = null;
     }
-  }
+  };
 
-  const renderAlert = (alert) => {
-
-    return (
-      <div className={`${style['alert-ctn']} ${style['d-flex']} ${style.col}`}>
-        {alert.map((error) => {
-          return <p className={style['alert-item']}>{`${error[0].toUpperCase()} ${error[1]}`}</p>
-        })}
-      </div>
-    )
-
-  }
-
+  const renderAlert = (alert) => (
+    <div className={`${style['alert-ctn']} ${style['d-flex']} ${style.col}`}>
+      {alert.map((error) => <p key={alert.indexOf(error)} className={style['alert-item']}>{`${error[0].toUpperCase()} ${error[1]}`}</p>)}
+    </div>
+  );
 
   return (
     <div className={`${style['d-flex']} ${style.col}`}>
       {alert ? renderAlert(alert) : null}
       <form onSubmit={handleSubmit} className={`${style['d-flex']} ${style.col} ${style['form-ctn']}`}>
-        <label>
+        <label htmlFor="name">
           Name:
           <input type="text" name="name" />
         </label>
-        <label>
+        <label htmlFor="title">
           Title:
           <input type="text" name="title" />
         </label>
-        <label>
+        <label htmlFor="price">
           Price:
           <input type="number" name="price" step=".01" />
         </label>
-        <label>
+        <label htmlFor="image">
           image:
           <input type="text" name="image" />
         </label>
-        <label>
+        <label htmlFor="description">
           description:
-          <input type="text" name="description" />
+          <input type="textarea" name="description" />
         </label>
         <input type="submit" value="Submit" />
       </form>
     </div>
-  )
+  );
 };
 export default BillionaireForm;
