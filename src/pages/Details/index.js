@@ -1,11 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import style from './style.module.css';
-import mockData from '../../mockdata';
 
 const Details = () => {
   const { id } = useParams();
-  const item = mockData.find((data) => data.id.toString() === id);
+  const data = useSelector((state) => state.billionaires.current);
+  const item = data.find((data) => data.id.toString() === id);
 
   return (
     <div className={style.page}>
