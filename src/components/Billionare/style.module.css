@@ -20,8 +20,6 @@
 
 .title {
   text-align: center;
-  color: var(--light-gray);
   font-size: small;
   color: gray;
 }
-

@@ -13,4 +13,9 @@ const Billionare = ({item}) => {
   )
 }
 
-export default Billionare
+
+Billionare.propTypes = {
+  item: PropTypes.instanceOf(Object).isRequired,
+};
+
+export default Billionare;
