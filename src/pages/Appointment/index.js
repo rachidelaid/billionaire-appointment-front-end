@@ -8,6 +8,7 @@ const Appointment = () => {
   const [date, setDate] = useState('');
   const [billionaire_id, setBillionaire_id] = useState('');
   const navigate = useNavigate();
+  const currentBillionaire = 5;
 
   const createAppointment = (e) => {
     e.preventDefault();
@@ -48,14 +49,21 @@ const Appointment = () => {
           />
           <select
             className={style['form-child']}
-            value={billionaire_id}
+            value={currentBillionaire || billionaire_id}
             onChange={(e) => setBillionaire_id(e.target.value)}
             required
           >
             <option value="" disabled>
               Billionaires List
             </option>
-            {billionaires.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
+            {billionaires.map(({ id, name }) => (
+              <option
+                key={id}
+                value={id}
+              >
+                {name}
+              </option>
+            ))}
           </select>
           <input
             className={style['form-child']}
