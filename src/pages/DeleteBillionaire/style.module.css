@@ -1,0 +1,15 @@
+.d-flex {
+  display: flex;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.alert-ctn {
+  color: red;
+}
+
+.click {
+  cursor: pointer;
+}
