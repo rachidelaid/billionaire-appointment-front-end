@@ -1,3 +1,28 @@
+.section-ctn {
+  text-align: center;
+  background-image: url("https://github.com/orozCoding/billionares-pictures/blob/main/backgrounds/mansion-and-pool.jpg?raw=true");
+  background-repeat: no-repeat;
+  background-size: 1500px 800px;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.layer {
+  background-color: rgba(154, 214, 49, 0.9);
+  width: auto;
+  min-height: 100vh;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid red;
+}
+
+.layer h2 {
+  font-family: var(--font-bold);
+  letter-spacing: 10px;
+}
+
 .d-flex {
   display: flex;
 }
@@ -6,10 +31,20 @@
   flex-direction: column;
 }
 
-.alert-ctn {
-  color: red;
-}
-
 .click {
   cursor: pointer;
+}
+
+.form-parent {
+  gap: 15px;
+  padding: 15px;
+}
+
+.form-ctn {
+  width: 100%;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid rgba(255, 255, 255, 0.248);
 }

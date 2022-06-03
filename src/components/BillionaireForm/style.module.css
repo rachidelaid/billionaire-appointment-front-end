@@ -7,9 +7,54 @@
 }
 
 .alert-ctn {
-  color: red;
+  color: black;
+  width: auto;
 }
 
 .click {
+  cursor: pointer;
+}
+
+.form-ctn {
+  width: 100%;
+  gap: 15px;
+}
+
+form {
+  width: 100%;
+  gap: 10px;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+}
+
+form label p {
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+form input,
+form textarea {
+  background-color: var(--green);
+  border: solid 1px rgba(255, 255, 255, 0.468);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+form input {
+  text-align: center;
+}
+
+form textarea {
+  width: 100%;
+}
+
+form input[type=submit] {
+  background-color: white;
+  color: var(--green);
+  text-align: center;
+  font-weight: bold;
   cursor: pointer;
 }

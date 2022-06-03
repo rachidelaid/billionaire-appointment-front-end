@@ -65,28 +65,28 @@ const BillionaireForm = () => {
   );
 
   return (
-    <div className={`${style['d-flex']} ${style.col}`}>
+    <div className={`${style.col} ${style['d-flex']}`}>
       {alert ? renderAlert(alert) : null}
-      <form onSubmit={handleSubmit} className={`${style['d-flex']} ${style.col} ${style['form-ctn']}`}>
+      <form onSubmit={handleSubmit} className={`${style['d-flex']} ${style.col} ${style['form-']}`}>
         <label htmlFor="name">
-          Name:
+          <p>Name:</p>
           <input type="text" name="name" />
         </label>
         <label htmlFor="title">
-          Title:
+          <p>Title:</p>
           <input type="text" name="title" />
         </label>
         <label htmlFor="price">
-          Price:
+          <p>Price:</p>
           <input type="number" name="price" step=".01" />
         </label>
         <label htmlFor="image">
-          image:
+          <p>Image URL:</p>
           <input type="text" name="image" />
         </label>
         <label htmlFor="description">
-          description:
-          <input type="textarea" name="description" />
+          <p>Description:</p>
+          <textarea name="description" />
         </label>
         <input type="submit" value="Submit" />
       </form>
