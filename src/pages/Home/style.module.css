@@ -10,7 +10,6 @@
 
 .title {
   font-family: var(--font-bold);
- 
 }
 
 .list {
@@ -36,15 +35,16 @@
   cursor: pointer;
   border: none;
 }
+
 .icon {
   color: aliceblue;
   margin-left: 15px;
 }
-@media (min-width: 768px) {
 
-.list {
-  gap: 100px;
-  display: flex;
-  flex-direction: row;
-}
+@media (min-width: 768px) {
+  .list {
+    gap: 100px;
+    display: flex;
+    flex-direction: row;
+  }
 }
