@@ -7,7 +7,7 @@ const fetchBillionaires = createAsyncThunk('/message/random', async () => {
   return response.statusText;
 });
 const initialState = {
-  all: []
+  all: [],
 };
 const billionaireSlice = createSlice({
   name: 'billionaires',

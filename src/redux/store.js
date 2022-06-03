@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import billionareReducer from './billionaires'
+import billionaireReducer from './billionaires';
 
 const store = configureStore({
   reducer: {
-    billionares: billionareReducer
+    billionaires: billionaireReducer,
   },
 });
 
