@@ -1,0 +1,72 @@
+.page {
+  display: flex;
+}
+
+.image-section {
+  flex: 7;
+  object-fit: fill;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6%;
+}
+.image {
+  width: 500px;
+  height: 500px;
+  object-fit: fill;
+}
+
+.details {
+  flex: 3;
+}
+
+.name {
+  font-family: var(--font-bold);
+}
+
+.title {
+  font-size: small;
+}
+
+.details header {
+  text-align: right;
+}
+
+.tile {
+  padding: 0.5em;
+  background-color: var(--light-gray);
+  display: flex;
+  justify-content: space-between;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+
+.back {
+  background-color: var(--green);
+  width: 60px;
+  height: 45px;
+  border-radius: 0 44% 44% 0;
+  position: fixed;
+  left: 0;
+  bottom: 10%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+}
+.icon {
+  color: aliceblue;
+  margin-left: 15px;
+}
+
+.container {
+  max-width: 800px;
+  display: flex;
+  gap: 30px;
+}
