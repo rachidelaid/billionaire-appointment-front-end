@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import style from './style.module.css';
+import handleErrors from './helper';
 
 const Appointment = () => {
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
   const [billionaire_id, setBillionaire_id] = useState('');
+  const navigate = useNavigate();
 
   const createAppointment = (e) => {
     e.preventDefault();
@@ -17,7 +20,9 @@ const Appointment = () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ appointment }),
-    });
+    }).then(handleErrors)
+      .then(() => navigate('/'))
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -36,7 +41,7 @@ const Appointment = () => {
           <input
             className={style['form-child']}
             type="text"
-            placeholder="London"
+            placeholder="City"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             required
