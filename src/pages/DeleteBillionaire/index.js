@@ -1,11 +1,12 @@
 import React from 'react';
-import BillionareDeleteList from '../../components/BillionareDeleteList';
+import BillionaireDeleteList from '../../components/BillionaireDeleteList';
 import style from './style.module.css';
 
-const DeleteBillionare = () => (
+const DeleteBillionaire = () => (
   <div>
-    <BillionareDeleteList />
+    <p>Hello from Delete page</p>
+    <BillionaireDeleteList />
   </div>
 );
 
-export default DeleteBillionare;
+export default DeleteBillionaire;

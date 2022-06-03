@@ -55,16 +55,14 @@ const BillionaireForm = () => {
     if (post.response.ok) {
       console.log('aca llegue');
       navigate('/')
-      console.log('Redirect to proper route');
     } else if (!post.response.ok) {
-      console.log(post);
       let arr = Object.entries(post.data)
       setAlert(arr);
       post = null;
     }
   }
 
-  const renderAlert = (alert) => {
+  const renderAlert = () => {
 
     return (
       <div className={`${style['alert-ctn']} ${style['d-flex']} ${style.col}`}>
@@ -79,7 +77,7 @@ const BillionaireForm = () => {
 
   return (
     <div className={`${style['d-flex']} ${style.col}`}>
-      {alert ? renderAlert(alert) : null}
+      {alert ? renderAlert() : null}
       <form onSubmit={handleSubmit} className={`${style['d-flex']} ${style.col} ${style['form-ctn']}`}>
         <label>
           Name:
