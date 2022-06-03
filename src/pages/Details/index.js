@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import style from './style.module.css';
 import mockData from '../../mockdata';
 
@@ -28,9 +28,9 @@ const Details = () => {
             <p>{item.description}</p>
           </div>
         </section>
-        <button type="button" className={style.back}>
+        <Link to="/" className={style.back}>
           <i className={`bi bi-caret-left ${style.icon}`} />
-        </button>
+        </Link>
       </div>
     </div>
   );
