@@ -9,6 +9,9 @@
 .details {
   max-width: 100%;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .name {
@@ -78,6 +81,20 @@
   width: 200px;
   height: 200px;
   object-fit: fill;
+}
+
+.reserve {
+  background-color: var(--green);
+  color: aliceblue;
+  border-radius: 20px;
+  padding: 0.5em;
+  display: flex;
+  gap: 10px;
+}
+
+.reserve-div {
+  align-self: center;
+
 }
 
 @media (min-width: 768px) {

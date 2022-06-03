@@ -32,6 +32,12 @@ const Details = () => {
             <h3>Bio</h3>
             <p>{item.description}</p>
           </div>
+          <div className={style['reserve-div']}>
+            <Link to="http://localhost:3000" className={style.reserve}>
+              <span>Reserve</span>
+              <span><i className="bi bi-emoji-smile-fill" /></span>
+            </Link>
+          </div>
         </section>
         <Link to="/" className={style.back}>
           <i className={`bi bi-caret-left ${style.icon}`} />
