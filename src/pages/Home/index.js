@@ -2,6 +2,7 @@ import React from 'react';
 import style from './style.module.css';
 import Billionare from '../../components/Billionare';
 import mockData from '../../mockdata';
+
 const Home = () => (
   <div className={style.container}>
     <div>
@@ -10,7 +11,7 @@ const Home = () => (
     </div>
     <div className={style.list}>
       {
-        mockData.map(item=> <Billionare item={item}  key={item.id}/>)
+        mockData.map((item) => <Billionare item={item} key={item.id} />)
       }
     </div>
     <button type="button" className={style.next}>
