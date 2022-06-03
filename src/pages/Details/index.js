@@ -1,12 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { fetchCurrentBillionaire } from '../../redux/billionaires';
 import style from './style.module.css';
 
 const Details = () => {
   const { id } = useParams();
-  const data = useSelector((state) => state.billionaires.current);
-  const item = data.find((data) => data.id.toString() === id);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCurrentBillionaire(id));
+  }, []);
+  const item = useSelector((state) => state.billionaires.current);
 
   return (
     <div className={style.page}>

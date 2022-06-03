@@ -12,7 +12,7 @@ const Home = () => {
     dispatch(fetchBillionaires());
   }, []);
 
-  const data = useSelector((state) => state.billionaires.current);
+  const data = useSelector((state) => state.billionaires.limit);
   const offset = useSelector((state) => state.billionaires.offset);
   const total = useSelector((state) => state.billionaires.total);
   const nextClick = () => {
