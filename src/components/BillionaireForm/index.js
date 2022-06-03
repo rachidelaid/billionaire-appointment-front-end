@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './style.module.css';
 
-const apiURL = 'http://localhost:3000/api/billionaires'
+const apiURL = 'http://localhost:3000/api/billionaires';
 
 const postBillionaire = async (form) => {
-
-  let result = {
+  const result = {
     response: {},
-    data: {}
-  }
+    data: {},
+  };
 
   const response = await fetch(apiURL, {
     method: 'POST',
@@ -17,7 +16,7 @@ const postBillionaire = async (form) => {
     cache: 'no-cache',
     credentials: 'same-origin',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
 
     },
     redirect: 'follow',
@@ -27,8 +26,8 @@ const postBillionaire = async (form) => {
       title: form.title.value,
       price: form.price.value,
       image: form.image.value,
-      description: form.description.value
-    })
+      description: form.description.value,
+    }),
   })
     .then((resp) => {
       result.response = resp;
@@ -37,43 +36,35 @@ const postBillionaire = async (form) => {
     .then((data) => {
       result.data = data;
       return data;
-    })
+    });
 
   return result;
-}
+};
 
 const BillionaireForm = () => {
-
   const [alert, setAlert] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let form = e.target
-    let post = await postBillionaire(form)
+    const form = e.target;
+    let post = await postBillionaire(form);
     console.log(post);
     if (post.response.ok) {
       console.log('aca llegue');
-      navigate('/')
+      navigate('/');
     } else if (!post.response.ok) {
-      let arr = Object.entries(post.data)
+      const arr = Object.entries(post.data);
       setAlert(arr);
       post = null;
     }
-  }
+  };
 
-  const renderAlert = () => {
-
-    return (
-      <div className={`${style['alert-ctn']} ${style['d-flex']} ${style.col}`}>
-        {alert.map((error) => {
-          return <p className={style['alert-item']}>{`${error[0].toUpperCase()} ${error[1]}`}</p>
-        })}
-      </div>
-    )
-
-  }
-
+  const renderAlert = () => (
+    <div className={`${style['alert-ctn']} ${style['d-flex']} ${style.col}`}>
+      {alert.map((error) => <p className={style['alert-item']}>{`${error[0].toUpperCase()} ${error[1]}`}</p>)}
+    </div>
+  );
 
   return (
     <div className={`${style['d-flex']} ${style.col}`}>
@@ -102,6 +93,6 @@ const BillionaireForm = () => {
         <input type="submit" value="Submit" />
       </form>
     </div>
-  )
+  );
 };
 export default BillionaireForm;
