@@ -62,7 +62,8 @@ const BillionaireDeleteList = () => {
 
     return (
       <div key={b.id} className={`${style['billionaire-ctn']} ${style['d-flex']} ${style.col}`}>
-        <h2>{b.name}</h2>
+        <img src={b.image} alt={`${b.name} profile pic`} />
+        <h3>{b.name}</h3>
         <button
           type="button"
           className={`${style.click}`}
@@ -77,7 +78,7 @@ const BillionaireDeleteList = () => {
   const renderBillionaires = (billionaires) => {
     if (billionaires.length > 0) {
       return (
-        <div>
+        <div className={`${style['billionaires-ctn']} ${style['d-flex']}`}>
           {
         billionaires.map((billionaire) => renderBillionaire(billionaire))
       }
@@ -90,10 +91,9 @@ const BillionaireDeleteList = () => {
   };
 
   return (
-    <div>
-      <p>Hello from Delete List</p>
+    <div className={`${style['delete-list-component-ctn']} ${style['d-flex']} ${style.col}`}>
       {alert && <div><p>{alert}</p></div>}
-      <div>{renderBillionaires(billionaires)}</div>
+      {renderBillionaires(billionaires)}
     </div>
   );
 };
