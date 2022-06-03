@@ -1,14 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Appointments Component renders 1`] = `
-<h1
-  class="heading"
+exports[`Appointments Component should create an appointment 1`] = `Promise {}`;
+
+exports[`Appointments Component should not create an appointment 1`] = `
+<button
+  class="btn"
+  type="submit"
 >
-  BOOK A BILLIONAIRE
-</h1>
+  Book Now
+</button>
 `;
 
-exports[`Appointments Component renders 2`] = `
+exports[`Appointments Component should render input date 1`] = `
+<input
+  class="form-child"
+  placeholder="Select date"
+  required=""
+  type="date"
+  value=""
+/>
+`;
+
+exports[`Appointments Component should render input text 1`] = `
 <input
   class="form-child"
   placeholder="City"
@@ -18,10 +31,9 @@ exports[`Appointments Component renders 2`] = `
 />
 `;
 
-exports[`Appointments Component renders 3`] = `
+exports[`Appointments Component should render select tag 1`] = `
 <select
   class="form-child"
-  data-testid="select-tag"
   required=""
 >
   <option
@@ -53,17 +65,7 @@ exports[`Appointments Component renders 3`] = `
 </select>
 `;
 
-exports[`Appointments Component renders 4`] = `
-<input
-  class="form-child"
-  data-testid="date-input"
-  required=""
-  type="date"
-  value=""
-/>
-`;
-
-exports[`Appointments Component renders 5`] = `
+exports[`Appointments Component should render submit button 1`] = `
 <button
   class="btn"
   type="submit"
@@ -72,7 +74,7 @@ exports[`Appointments Component renders 5`] = `
 </button>
 `;
 
-exports[`Missions Component renders 1`] = `
+exports[`Appointments Component should render welcome text 1`] = `
 <h1
   class="heading"
 >

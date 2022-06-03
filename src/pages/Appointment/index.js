@@ -51,7 +51,6 @@ const Appointment = () => {
             value={billionaire_id}
             onChange={(e) => setBillionaire_id(e.target.value)}
             required
-            data-testid="select-tag"
           >
             <option value="" disabled>
               Billionaires List
@@ -75,7 +74,7 @@ const Appointment = () => {
             value={date}
             onChange={(e) => setDate(e.target.value)}
             required
-            data-testid="date-input"
+            placeholder="Select date"
           />
           <button
             className={style.btn}
