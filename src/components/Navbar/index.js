@@ -1,12 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import style from './style.module.css';
+import links from './links';
 
 const Navbar = () => {
   const activeStyle = {
     backgroundColor: 'var(--green)',
     color: 'white',
   };
+
+  const currentUserRole = 3;
 
   return (
     <nav className={`${style.nav} ${style['flex-center']}`}>
@@ -18,54 +21,17 @@ const Navbar = () => {
         />
       </div>
       <ul className={`${style.links} ${style['flex-center']} ${style.list}`}>
-        <li>
-          <NavLink
-            className={style.link}
-            to="/"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            BILLIONAIRES
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={style.link}
-            to="/new/appointments"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            RESERVE BILLIONAIRE
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={style.link}
-            to="/appointments"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            MY APPOINTMENTS
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={style.link}
-            to="/new/billionaire"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            ADD BILLIONAIRE
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={style.link}
-            to="/delete/billionaire"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            DELETE BILLIONAIRE
-          </NavLink>
-        </li>
-        <li>
-          <a className={style.link} href="/hello">LOGOUT</a>
-        </li>
+        {links.map(({ path, description, permission }) => (
+          <li key={description} style={permission > currentUserRole ? { display: 'none' } : { display: 'block' }}>
+            <NavLink
+              className={style.link}
+              to={path}
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
+              {description}
+            </NavLink>
+          </li>
+        ))}
       </ul>
       <div className={style['nav-footer']}>
         <ul className={`${style.social} ${style.list}`}>
