@@ -9,7 +9,7 @@ const Navbar = () => {
     color: 'white',
   };
 
-  const currentUserRole = 3;
+  const currentUserRole = 'admin';
 
   return (
     <nav className={`${style.nav} ${style['flex-center']}`}>
@@ -22,7 +22,8 @@ const Navbar = () => {
       </div>
       <ul className={`${style.links} ${style['flex-center']} ${style.list}`}>
         {links.map(({ path, description, permission }) => (
-          <li key={description} style={permission > currentUserRole ? { display: 'none' } : { display: 'block' }}>
+          permission.includes(currentUserRole) && (
+          <li key={description}>
             <NavLink
               className={style.link}
               to={path}
@@ -31,6 +32,7 @@ const Navbar = () => {
               {description}
             </NavLink>
           </li>
+          )
         ))}
       </ul>
       <div className={style['nav-footer']}>
