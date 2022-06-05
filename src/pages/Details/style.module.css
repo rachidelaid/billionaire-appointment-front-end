@@ -14,8 +14,6 @@
   gap: 20px;
 }
 
-
-
 .back {
   background-color: var(--green);
   width: 60px;
@@ -58,13 +56,12 @@
   object-fit: fill;
 }
 
-
 @media (min-width: 768px) {
   .back {
     bottom: -40px;
   }
 
- 
+
 
   .image {
     width: 500px;
