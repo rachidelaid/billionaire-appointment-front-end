@@ -25,8 +25,8 @@ const Home = () => {
   return (
     <div className={style.container}>
       <div>
-        <h1 className={style.title}>TOP SPEAKERS</h1>
-        <h2 className={style.subtitle}>Please select a speaker</h2>
+        <h1 className={style.title}>TOP BILLIONAIRES</h1>
+        <h2 className={style.subtitle}>Please select a billionaire</h2>
       </div>
       <div className={style.list}>
         {
