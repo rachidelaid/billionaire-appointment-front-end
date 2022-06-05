@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import style from './style.module.css';
+import { signup } from '../../redux/users';
 
 const Signup = () => {
+  const { user } = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user && user.id) {
+      navigate('/');
+    }
+  }, [user]);
+
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
@@ -24,17 +36,10 @@ const Signup = () => {
       email: email.value.trim(),
       password: password.value.trim(),
       confirmPassword: confirmPassword.value.trim(),
-      client_id: '5HQ7dTk0E19iqnVKOq54AS9q5R97-dyNw3vdnhXBpos',
+      client_id: process.env.REACT_APP_CLIENT_ID,
     };
 
-    const resp = await fetch('http://localhost:3000/api/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(user),
-    });
-    const data = await resp.json();
+    dispatch(signup(user));
   };
 
   return (
