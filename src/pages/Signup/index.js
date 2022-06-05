@@ -35,7 +35,6 @@ const Signup = () => {
       username: username.value.trim(),
       email: email.value.trim(),
       password: password.value.trim(),
-      confirmPassword: confirmPassword.value.trim(),
       client_id: process.env.REACT_APP_CLIENT_ID,
     };
 
@@ -49,6 +48,8 @@ const Signup = () => {
           <h1>Signup</h1>
 
           {error && <p className={style.error}>{error}</p>}
+          {(user && user.error)
+            && (user.error.map((err) => <p key={err.length} className={style.error}>{err}</p>))}
 
           <input type="text" id="name" placeholder="Name" required />
           <input type="text" id="username" placeholder="Username" required />

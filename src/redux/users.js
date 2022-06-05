@@ -14,7 +14,7 @@ const signup = createAsyncThunk('users/signup', async (userObject) => {
     body: JSON.stringify(userObject),
   });
   const data = await resp.json();
-  setCookie(data.user.refresh_token);
+
   return data;
 });
 
@@ -28,7 +28,10 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(signup.fulfilled, (state, action) => {
       if (action.payload.user) {
+        setCookie(action.payload.user.refresh_token);
         state.user = action.payload.user;
+      } else if (typeof action.payload.error === 'string') {
+        state.user = { error: [action.payload.error] };
       } else {
         state.user = action.payload;
       }
