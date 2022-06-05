@@ -14,32 +14,7 @@
   gap: 20px;
 }
 
-.name {
-  font-family: var(--font-bold);
-  padding: 10px;
-}
 
-.title {
-  font-size: small;
-  padding: 10px;
-}
-
-.details header {
-  text-align: right;
-}
-
-.tile {
-  padding: 0.5em;
-  background-color: var(--light-gray);
-  display: flex;
-  justify-content: space-between;
-}
-
-.bio {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
 
 .back {
   background-color: var(--green);
@@ -83,28 +58,13 @@
   object-fit: fill;
 }
 
-.reserve {
-  background-color: var(--green);
-  color: aliceblue;
-  border-radius: 20px;
-  padding: 0.5em;
-  display: flex;
-  gap: 10px;
-}
-
-.reserve-div {
-  align-self: center;
-
-}
 
 @media (min-width: 768px) {
   .back {
     bottom: -40px;
   }
 
-  .details {
-    max-width: 350px;
-  }
+ 
 
   .image {
     width: 500px;

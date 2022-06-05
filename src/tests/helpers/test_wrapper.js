@@ -1,17 +1,19 @@
-import React from 'react'
-import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
-import store from '../../redux/store'
+import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import store from '../../redux/store';
 
-const Wrapper = ({children}) => {
-  return (
-   
-    <Provider store={store}>
-      <BrowserRouter>
-       {children}
-      </BrowserRouter>
-    </Provider>
-  )
-}
+const Wrapper = ({ children }) => (
 
-export default Wrapper
+  <Provider store={store}>
+    <BrowserRouter>
+      {children}
+    </BrowserRouter>
+  </Provider>
+);
+Wrapper.propTypes = {
+  children: PropTypes.instanceOf(Array).isRequired,
+};
+
+export default Wrapper;
