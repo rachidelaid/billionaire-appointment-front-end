@@ -4,9 +4,16 @@
   align-items: center;
 }
 
+.hidden {
+  display: none;
+}
+
+.hamburger {
+  display: block;
+}
+
 .nav {
   height: 100%;
-  width: 200px;
   position: fixed;
   z-index: 1;
   top: 0;
