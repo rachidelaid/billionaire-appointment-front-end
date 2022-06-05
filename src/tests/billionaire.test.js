@@ -14,7 +14,6 @@ describe ('billionaire',()=>{
   }
   const billionaire = <Wrapper><Billionare item={item} /></Wrapper>
   beforeEach(()=>{
-
     render(billionaire) 
   })
   it ('should have a title',()=>{
@@ -25,5 +24,11 @@ describe ('billionaire',()=>{
     const textNode = screen.getByText('name')
     expect(textNode).toBeInTheDocument
   })
+  it('should navigate to the speakers page when clicked', async () => {
+    const component = screen.queryByText('name')
+    component.click()
+    
+    expect(/Bio/i).toBeInTheDocument
+})
 
 })
