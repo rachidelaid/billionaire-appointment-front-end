@@ -14,7 +14,9 @@ const Appointment = () => {
     response: null,
     data: null,
   });
+
   const navigate = useNavigate();
+  const currentUserId = useSelector((state) => (state.users.user ? state.users.user.id : 1));
 
   const createAppointment = async (e) => {
     e.preventDefault();
@@ -22,7 +24,7 @@ const Appointment = () => {
     let status = null;
 
     const appointment = {
-      city, date, billionaire_id, user_id: 1,
+      city, date, billionaire_id, user_id: currentUserId,
     };
 
     await fetch('http://localhost:3000/api/appointments', {
