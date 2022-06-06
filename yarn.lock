@@ -3540,27 +3540,7 @@
     "domutils" "^2.8.0"
     "nth-check" "^2.0.1"
 
-<<<<<<< HEAD
-"css-tree@^1.0.0":
-  "integrity" "sha512-tRpdppF7TRazZrjJ6v3stzv93qxRcSsFmW6cX0Zm2NVKpxE1WV1HblnghVv9TreireHkqI/VDEsfolRF1p6y7Q=="
-  "resolved" "https://registry.npmjs.org/css-tree/-/css-tree-1.1.3.tgz"
-  "version" "1.1.3"
-  dependencies:
-    "mdn-data" "2.0.14"
-    "source-map" "^0.6.1"
-
-"css-tree@^1.1.2":
-  "integrity" "sha512-tRpdppF7TRazZrjJ6v3stzv93qxRcSsFmW6cX0Zm2NVKpxE1WV1HblnghVv9TreireHkqI/VDEsfolRF1p6y7Q=="
-  "resolved" "https://registry.npmjs.org/css-tree/-/css-tree-1.1.3.tgz"
-  "version" "1.1.3"
-  dependencies:
-    "mdn-data" "2.0.14"
-    "source-map" "^0.6.1"
-
-"css-tree@^1.1.3":
-=======
 "css-tree@^1.0.0", "css-tree@^1.1.2", "css-tree@^1.1.3":
->>>>>>> 79a30504dabb1898619f69dd243d2e496b6033c3
   "integrity" "sha512-tRpdppF7TRazZrjJ6v3stzv93qxRcSsFmW6cX0Zm2NVKpxE1WV1HblnghVv9TreireHkqI/VDEsfolRF1p6y7Q=="
   "resolved" "https://registry.npmjs.org/css-tree/-/css-tree-1.1.3.tgz"
   "version" "1.1.3"
