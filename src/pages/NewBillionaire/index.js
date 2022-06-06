@@ -14,7 +14,7 @@ const NewBillionaire = () => {
         );
       }
       return (
-        <BillionaireForm />
+        <BillionaireForm user={user} />
       );
     }
     return (

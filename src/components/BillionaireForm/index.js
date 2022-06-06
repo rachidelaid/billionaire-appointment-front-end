@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import style from './style.module.css';
 
 const apiURL = 'http://localhost:3000/api/billionaires';
@@ -41,8 +41,7 @@ const postBillionaire = async (form, user) => {
   return result;
 };
 
-const BillionaireForm = () => {
-  const { user } = useSelector((state) => state.users);
+const BillionaireForm = ({ user }) => {
   const [alert, setAlert] = useState(null);
   const navigate = useNavigate();
 
@@ -94,4 +93,9 @@ const BillionaireForm = () => {
     </div>
   );
 };
+
+BillionaireForm.propTypes = {
+  user: PropTypes.instanceOf(Object).isRequired,
+};
+
 export default BillionaireForm;
