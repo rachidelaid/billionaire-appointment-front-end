@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  object-fit: fill;
+}
+
+.name {
+  font-family: var(--font-bold);
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  font-size: small;
+  color: gray;
+}
