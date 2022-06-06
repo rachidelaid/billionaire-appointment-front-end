@@ -8,6 +8,6 @@ describe('homepage', () => {
 
   it('should display top speakers', async () => {
     render(home);
-    expect(screen.queryByText(/Top speakers/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Top billionaires/i)).toBeInTheDocument();
   });
 });
