@@ -1,146 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`New Billionaire Page should render the Add a New Billionaire page when user is admin 1`] = `
+exports[`New Billionaire Page should render the Delete Billionaires page 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="col d-flex"
+        class="delete-list-component-ctn d-flex col"
       >
-        <form
-          class="d-flex col form-"
+        <div
+          class="billionaires-ctn d-flex"
         >
-          <label
-            for="name"
+          <div
+            class="billionaire-ctn d-flex col"
           >
-            <p>
-              Name:
-            </p>
-            <input
-              name="name"
-              type="text"
+            <img
+              alt="Jeff profile pic"
+              src="url"
             />
-          </label>
-          <label
-            for="title"
-          >
-            <p>
-              Title:
-            </p>
-            <input
-              name="title"
-              type="text"
-            />
-          </label>
-          <label
-            for="price"
-          >
-            <p>
-              Price:
-            </p>
-            <input
-              name="price"
-              step=".01"
-              type="number"
-            />
-          </label>
-          <label
-            for="image"
-          >
-            <p>
-              Image URL:
-            </p>
-            <input
-              name="image"
-              type="text"
-            />
-          </label>
-          <label
-            for="description"
-          >
-            <p>
-              Description:
-            </p>
-            <textarea
-              name="description"
-            />
-          </label>
-          <input
-            type="submit"
-            value="Submit"
-          />
-        </form>
+            <h3>
+              Jeff
+            </h3>
+            <button
+              class="click"
+              type="button"
+            >
+              DELETE
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="col d-flex"
+      class="delete-list-component-ctn d-flex col"
     >
-      <form
-        class="d-flex col form-"
+      <div
+        class="billionaires-ctn d-flex"
       >
-        <label
-          for="name"
+        <div
+          class="billionaire-ctn d-flex col"
         >
-          <p>
-            Name:
-          </p>
-          <input
-            name="name"
-            type="text"
+          <img
+            alt="Jeff profile pic"
+            src="url"
           />
-        </label>
-        <label
-          for="title"
-        >
-          <p>
-            Title:
-          </p>
-          <input
-            name="title"
-            type="text"
-          />
-        </label>
-        <label
-          for="price"
-        >
-          <p>
-            Price:
-          </p>
-          <input
-            name="price"
-            step=".01"
-            type="number"
-          />
-        </label>
-        <label
-          for="image"
-        >
-          <p>
-            Image URL:
-          </p>
-          <input
-            name="image"
-            type="text"
-          />
-        </label>
-        <label
-          for="description"
-        >
-          <p>
-            Description:
-          </p>
-          <textarea
-            name="description"
-          />
-        </label>
-        <input
-          type="submit"
-          value="Submit"
-        />
-      </form>
+          <h3>
+            Jeff
+          </h3>
+          <button
+            class="click"
+            type="button"
+          >
+            DELETE
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
