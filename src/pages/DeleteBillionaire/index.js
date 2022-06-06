@@ -14,7 +14,7 @@ const DeleteBillionaire = () => {
         );
       }
       return (
-        <BillionaireDeleteList user={user} />
+        <BillionaireDeleteList />
       );
     }
     return (
@@ -29,7 +29,7 @@ const DeleteBillionaire = () => {
           <h2>DELETE BILLIONAIRES</h2>
           <hr />
           <div className={`${style['d-flex']} ${style['delete-list-ctn']}`}>
-            {() => handleConditionalRendering(user)}
+            {handleConditionalRendering(user)}
           </div>
         </div>
       </div>

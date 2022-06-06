@@ -1,29 +1,33 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import style from './style.module.css';
+import { fetchBillionaires } from '../../redux/billionaires';
 
-const apiURL = 'http://localhost:3000/api/billionaires';
+// const apiURL = 'http://localhost:3000/api/billionaires';
 const deleteApiURL = (id) => `http://localhost:3000/api/billionaires/${id}`;
 
-const getBillionaires = async () => {
-  const result = await fetch(apiURL)
-    .then((resp) => resp.json())
-    .then((data) => data)
-    .catch((error) => error);
+// const getBillionaires = async () => {
+//   const result = await fetch(apiURL)
+//     .then((resp) => resp.json())
+//     .then((data) => data)
+//     .catch((error) => error);
 
-  return result;
-};
+//   return result;
+// };
 
 const BillionaireDeleteList = () => {
-  const [billionaires, setBillionaires] = useState([]);
+  // const [billionaires, setBillionaires] = useState([]);
+  const billionaires = useSelector((state) => state.billionaires.all);
+  const dispatch = useDispatch();
   const [alert, setAlert] = useState(null);
 
-  const setBillionairesList = async () => {
-    const result = await getBillionaires();
-    setBillionaires(result);
-  };
+  // const setBillionairesList = async () => {
+  //   const result = await getBillionaires();
+  //   setBillionaires(result);
+  // };
 
   useEffect(() => {
-    setBillionairesList();
+    dispatch(fetchBillionaires());
   }, []);
 
   const deleteBillionaire = async (id) => {
@@ -50,7 +54,7 @@ const BillionaireDeleteList = () => {
 
   const handleDeleteBillionaire = async (id) => {
     const result = await deleteBillionaire(id);
-    setBillionairesList();
+    dispatch(fetchBillionaires());
 
     if (result.response.ok) {
       setAlert(result.data);
