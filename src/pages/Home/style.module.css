@@ -29,7 +29,7 @@
   border-radius: 44% 0 0 44%;
   position: fixed;
   right: 0;
-  top: 50%;
+  bottom: 50%;
   display: flex;
   align-items: center;
   cursor: pointer;
