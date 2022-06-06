@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './style.module.css';
-import billionaires from './helper';
+import billionaires, { capitalize } from './helper';
 
 const Appointment = () => {
   const [city, setCity] = useState('');
@@ -34,10 +34,18 @@ const Appointment = () => {
       });
   };
 
-  console.log(errors);
-
   return (
     <div className={`${style.container} ${style['flex-center']}`}>
+      <div className={style.errors}>
+        {Object.entries(errors.data).map((error) => (
+          <p key={error[0]}>
+            {capitalize(error[0])}
+            {' '}
+            {error[1]}
+          </p>
+        ))}
+
+      </div>
       <div className={`${style.information} ${style['flex-center']}`}>
         <h1 className={style.heading}>BOOK A BILLIONAIRE</h1>
         <hr className={style.line} />
