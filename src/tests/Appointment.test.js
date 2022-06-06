@@ -2,24 +2,28 @@ import {
   fireEvent, render, screen,
 } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import Appointment from '../pages/Appointment';
+import store from '../redux/store';
 
-const RouterProvider = () => (
-  <BrowserRouter>
-    <Appointment />
-  </BrowserRouter>
+const Wrapper = () => (
+  <Provider store={store}>
+    <BrowserRouter>
+      <Appointment />
+    </BrowserRouter>
+  </Provider>
 );
 
 describe('Appointments Component', () => {
   it('should render welcome text', () => {
-    render(<RouterProvider />);
+    render(<Wrapper />);
     const welcomeText = screen.getByRole('heading', { name: /book a billionaire/i });
 
     expect(welcomeText).toMatchSnapshot();
   });
 
   it('should render input text', () => {
-    render(<RouterProvider />);
+    render(<Wrapper />);
     const cityInput = screen.getByRole('textbox');
 
     expect(cityInput).toMatchSnapshot();
@@ -29,7 +33,7 @@ describe('Appointments Component', () => {
   });
 
   it('should render select tag', () => {
-    render(<RouterProvider />);
+    render(<Wrapper />);
     const billionaireSelect = screen.getByRole('combobox');
 
     expect(billionaireSelect).toMatchSnapshot();
@@ -39,7 +43,7 @@ describe('Appointments Component', () => {
   });
 
   it('should render input date', () => {
-    render(<RouterProvider />);
+    render(<Wrapper />);
     const dateInput = screen.getByPlaceholderText(/select date/i);
 
     expect(dateInput).toMatchSnapshot();
@@ -49,14 +53,14 @@ describe('Appointments Component', () => {
   });
 
   it('should render submit button', () => {
-    render(<RouterProvider />);
+    render(<Wrapper />);
     const submitButton = screen.getByRole('button', { name: /book now/i });
 
     expect(submitButton).toMatchSnapshot();
   });
 
   it('should not create an appointment', () => {
-    render(<RouterProvider />);
+    render(<Wrapper />);
     const submitButton = screen.getByRole('button', { name: /book now/i });
 
     fireEvent.click(submitButton);
@@ -65,7 +69,7 @@ describe('Appointments Component', () => {
   });
 
   it('should create an appointment', async () => {
-    render(<RouterProvider />);
+    render(<Wrapper />);
 
     const submitButton = screen.getByRole('button', { name: /book now/i });
 
