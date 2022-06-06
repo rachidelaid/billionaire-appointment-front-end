@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './style.module.css';
-import handleErrors, { billionaires } from './helper';
+import billionaires from './helper';
 
 const Appointment = () => {
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
   const [billionaire_id, setBillionaire_id] = useState('');
+  const [errors, setErrors] = useState({
+    data: [],
+  });
   const navigate = useNavigate();
   const currentBillionaire = 5;
 
@@ -21,10 +24,17 @@ const Appointment = () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ appointment }),
-    }).then(handleErrors)
-      .then(() => navigate('/'))
-      .catch((error) => console.log(error));
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setErrors({
+          data,
+        });
+        return data;
+      });
   };
+
+  console.log(errors);
 
   return (
     <div className={`${style.container} ${style['flex-center']}`}>
@@ -45,13 +55,13 @@ const Appointment = () => {
             placeholder="City"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            required
+
           />
           <select
             className={style['form-child']}
             value={currentBillionaire || billionaire_id}
             onChange={(e) => setBillionaire_id(e.target.value)}
-            required
+
           >
             <option value="" disabled>
               Billionaires List
@@ -70,7 +80,7 @@ const Appointment = () => {
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            required
+
             placeholder="Select date"
           />
           <button

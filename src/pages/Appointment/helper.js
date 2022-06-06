@@ -1,11 +1,4 @@
-const handleErrors = (response) => {
-  if (!response.ok) throw Error(response.statusText);
-  return response;
-};
-
-export default handleErrors;
-
-export const billionaires = [
+const billionaires = [
   {
     id: 1,
     name: 'Elon Musk',
@@ -107,3 +100,5 @@ export const billionaires = [
     updated_at: '2022-06-02T10:43:39.819Z',
   },
 ];
+
+export default billionaires;
