@@ -32,7 +32,7 @@ const Home = () => {
       }
       </div>
       {
-        (offset >= total) ? ''
+        (offset >= total - 1) ? ''
           : (
             <button type="button" className={style.next} onClick={nextClick}>
               <i className={`bi bi-caret-right ${style.icon}`} />
