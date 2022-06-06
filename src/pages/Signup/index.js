@@ -53,7 +53,7 @@ const Signup = () => {
 
           <input type="text" id="name" placeholder="Name" required />
           <input type="text" id="username" placeholder="Username" required />
-          <input type="email" id="email" placeholder="Email" required />
+          <input type="email" data-testid="email" id="email" placeholder="Email" required />
           <input type="password" id="password" placeholder="Password" min={6} required />
           <input type="password" id="confirmPassword" placeholder="Confirm Password" min={6} required />
 
