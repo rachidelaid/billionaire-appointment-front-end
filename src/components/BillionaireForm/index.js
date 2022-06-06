@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import style from './style.module.css';
 
 const apiURL = 'http://localhost:3000/api/billionaires';
 
-const postBillionaire = async (form) => {
+const postBillionaire = async (form, user) => {
   const result = {
     response: {},
     data: {},
@@ -17,7 +18,7 @@ const postBillionaire = async (form) => {
     credentials: 'same-origin',
     headers: {
       'Content-Type': 'application/json',
-
+      Authorization: `${user.token_type} ${user.access_token}`,
     },
     redirect: 'follow',
     referrerPolicy: 'no-referrer',
@@ -37,20 +38,20 @@ const postBillionaire = async (form) => {
       result.data = data;
       return data;
     });
-
   return result;
 };
 
 const BillionaireForm = () => {
+  const { user } = useSelector((state) => state.users);
   const [alert, setAlert] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
-    let post = await postBillionaire(form);
+    let post = await postBillionaire(form, user);
     if (post.response.ok) {
-      navigate('/');
+      navigate(`/details/${post.data.id}`);
     } else if (!post.response.ok) {
       const arr = Object.entries(post.data);
       setAlert(arr);
@@ -66,8 +67,8 @@ const BillionaireForm = () => {
 
   return (
     <div className={`${style.col} ${style['d-flex']}`}>
-      {alert ? renderAlert(alert) : null}
       <form onSubmit={handleSubmit} className={`${style['d-flex']} ${style.col} ${style['form-']}`}>
+        {alert ? renderAlert(alert) : null}
         <label htmlFor="name">
           <p>Name:</p>
           <input type="text" name="name" />
