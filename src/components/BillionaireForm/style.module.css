@@ -39,14 +39,6 @@ form label p {
   letter-spacing: 2px;
 }
 
-/* form input,
-form textarea {
-  background-color: var(--green);
-  border: solid 1px rgba(255, 255, 255, 0.468);
-  border-radius: 15px;
-  padding: 10px;
-} */
-
 form input,
 form textarea {
   border-radius: 1rem;
@@ -63,14 +55,6 @@ form input {
 form textarea {
   width: 100%;
 }
-
-/* form input[type=submit] {
-  background-color: white;
-  color: var(--green);
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
-} */
 
 form input[type=submit] {
   border: 1px solid #fff;
