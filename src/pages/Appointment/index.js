@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import style from './style.module.css';
 import billionaires, { capitalize } from './helper';
 
+/* eslint-disable camelcase */
 const Appointment = () => {
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
-  const currentBillionaire = null;
-  const [billionaire_id, setBillionaire_id] = useState(currentBillionaire || '');
+  const currentBillionaireId = useSelector((state) => state.billionaires.current.id);
+  const [billionaire_id, setBillionaire_id] = useState(currentBillionaireId || '');
   const [result, setResult] = useState({
     response: null,
     data: null,
@@ -111,5 +113,6 @@ const Appointment = () => {
     </div>
   );
 };
+/* eslint-enable camelcase */
 
 export default Appointment;

@@ -17,7 +17,7 @@ const DetailsText = ({ item }) => (
       <p>{item.description}</p>
     </div>
     <div className={style['reserve-div']}>
-      <Link to="http://localhost:3000" className={style.reserve}>
+      <Link to="/new-appointment" className={style.reserve}>
         <span>Reserve</span>
         <span>
           <i className="bi bi-emoji-smile-fill" />
