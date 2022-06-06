@@ -33,9 +33,9 @@ describe('Appointments Component', () => {
     const billionaireSelect = screen.getByRole('combobox');
 
     expect(billionaireSelect).toMatchSnapshot();
-    fireEvent.change(billionaireSelect, { target: { value: 2 } });
+    fireEvent.change(billionaireSelect, { target: { value: 5 } });
 
-    expect(billionaireSelect.value).toBe('2');
+    expect(billionaireSelect.value).toBe('5');
   });
 
   it('should render input date', () => {

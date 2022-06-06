@@ -45,22 +45,52 @@ exports[`Appointments Component should render select tag 1`] = `
   <option
     value="1"
   >
-    Ariel Camus
+    Elon Musk
   </option>
   <option
     value="2"
   >
-    Bill Gates
+    Jeff Bezos
   </option>
   <option
     value="3"
   >
-    Francoise Meyers
+    Ariel Camus
   </option>
   <option
     value="4"
   >
+    Julia Koch
+  </option>
+  <option
+    value="5"
+  >
+    Alice Walton
+  </option>
+  <option
+    value="6"
+  >
     Jack Ma
+  </option>
+  <option
+    value="7"
+  >
+    Francoise Meyers
+  </option>
+  <option
+    value="8"
+  >
+    Changpeng Zhao
+  </option>
+  <option
+    value="9"
+  >
+    Mark Zuckerberg
+  </option>
+  <option
+    value="10"
+  >
+    Bill Gates
   </option>
 </select>
 `;
