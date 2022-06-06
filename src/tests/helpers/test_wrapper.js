@@ -13,7 +13,7 @@ const Wrapper = ({ children }) => (
   </Provider>
 );
 Wrapper.propTypes = {
-  children: PropTypes.any.isRequired,
+  children: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Wrapper;
