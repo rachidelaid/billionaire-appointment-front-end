@@ -4,28 +4,12 @@ import PropTypes from 'prop-types';
 import style from './style.module.css';
 import { fetchBillionaires } from '../../redux/billionaires';
 
-// const apiURL = 'http://localhost:3000/api/billionaires';
 const deleteApiURL = (id) => `http://localhost:3000/api/billionaires/${id}`;
 
-// const getBillionaires = async () => {
-//   const result = await fetch(apiURL)
-//     .then((resp) => resp.json())
-//     .then((data) => data)
-//     .catch((error) => error);
-
-//   return result;
-// };
-
 const BillionaireDeleteList = ({ user }) => {
-  // const [billionaires, setBillionaires] = useState([]);
   const billionaires = useSelector((state) => state.billionaires.all);
   const dispatch = useDispatch();
   const [alert, setAlert] = useState(null);
-
-  // const setBillionairesList = async () => {
-  //   const result = await getBillionaires();
-  //   setBillionaires(result);
-  // };
 
   useEffect(() => {
     dispatch(fetchBillionaires());
@@ -56,10 +40,9 @@ const BillionaireDeleteList = ({ user }) => {
 
   const handleDeleteBillionaire = async (id) => {
     const result = await deleteBillionaire(id);
-    dispatch(fetchBillionaires());
-
     if (result.response.ok) {
       setAlert(result.data);
+      dispatch(fetchBillionaires());
     }
   };
 
@@ -98,7 +81,7 @@ const BillionaireDeleteList = ({ user }) => {
 
   return (
     <div className={`${style['delete-list-component-ctn']} ${style['d-flex']} ${style.col}`}>
-      {alert && <div><p>{alert}</p></div>}
+      {alert && <p>{alert}</p>}
       {renderBillionaires(billionaires)}
     </div>
   );
