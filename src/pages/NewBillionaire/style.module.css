@@ -1,11 +1,13 @@
 .section-ctn {
   text-align: center;
-  background-image: url("https://github.com/orozCoding/billionares-pictures/blob/main/backgrounds/mansion-and-pool.jpg?raw=true");
-  background-repeat: no-repeat;
-  background-size: 1500px 800px;
   position: relative;
   width: 100%;
   min-height: 100vh;
+  background-image: url("https://raw.githubusercontent.com/orozCoding/billionares-pictures/main/backgrounds/mansion-and-pool.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .layer {
@@ -15,7 +17,6 @@
   color: white;
   align-items: center;
   justify-content: center;
-  border: 2px solid red;
 }
 
 .layer h2 {
