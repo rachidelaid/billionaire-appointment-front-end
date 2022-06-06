@@ -5,6 +5,7 @@ import style from './style.module.css';
 
 const DeleteBillionaire = () => {
   const { user } = useSelector((state) => state.users);
+  const billionaires = useSelector((state) => state.billionaires.all);
 
   const handleConditionalRendering = (user) => {
     if (user && !user.error) {
@@ -14,7 +15,7 @@ const DeleteBillionaire = () => {
         );
       }
       return (
-        <BillionaireDeleteList user={user} />
+        <BillionaireDeleteList user={user} billionaires={billionaires} />
       );
     }
     return (

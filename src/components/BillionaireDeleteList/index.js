@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import style from './style.module.css';
 import { fetchBillionaires } from '../../redux/billionaires';
 
 const deleteApiURL = (id) => `http://localhost:3000/api/billionaires/${id}`;
 
-const BillionaireDeleteList = ({ user }) => {
-  const billionaires = useSelector((state) => state.billionaires.all);
+const BillionaireDeleteList = ({ user, billionaires }) => {
   const dispatch = useDispatch();
   const [alert, setAlert] = useState(null);
 
@@ -89,6 +88,7 @@ const BillionaireDeleteList = ({ user }) => {
 
 BillionaireDeleteList.propTypes = {
   user: PropTypes.instanceOf(Object).isRequired,
+  billionaires: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default BillionaireDeleteList;

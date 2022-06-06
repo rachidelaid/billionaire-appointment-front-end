@@ -13,6 +13,6 @@ describe('New Billionaire Page', () => {
 
   it('should display the title', async () => {
     render(page);
-    expect(screen.queryByText(/ADD A BILLIONAIRE/i)).toBeInTheDocument();
+    expect(screen.queryByText(/DELETE BILLIONAIRES/i)).toBeInTheDocument();
   });
 });
