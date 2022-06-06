@@ -14,7 +14,7 @@ const DeleteBillionaire = () => {
         );
       }
       return (
-        <BillionaireDeleteList />
+        <BillionaireDeleteList user={user} />
       );
     }
     return (
