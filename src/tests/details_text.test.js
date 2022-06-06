@@ -1,20 +1,22 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Wrapper from './helpers/test_wrapper';
-import Billionare from '../components/Billionare';
+import DetailsText from '../components/DetailsText';
 /* eslint-disable no-unused-expressions */
+
 describe('billionaire', () => {
   const item = {
     id: 1,
     name: 'name',
     title: 'title',
     username: 'username',
+    description: 'description',
     price: 0,
     image: '',
   };
-  const billionaire = <Wrapper><Billionare item={item} /></Wrapper>;
+  const billionaireDetails = <Wrapper><DetailsText item={item} /></Wrapper>;
   beforeEach(() => {
-    render(billionaire);
+    render(billionaireDetails);
   });
   it('should have a title', () => {
     const textNode = screen.getByText('title');
@@ -24,10 +26,8 @@ describe('billionaire', () => {
     const textNode = screen.getByText('name');
     expect(textNode).toBeInTheDocument;
   });
-  it('should navigate to the speakers page when clicked', () => {
-    const component = screen.queryByText('name');
-    component.click();
-
-    expect(/Bio/i).toBeInTheDocument;
+  it('should have a description', () => {
+    const textNode = screen.getByText('description');
+    expect(textNode).toBeInTheDocument;
   });
 });

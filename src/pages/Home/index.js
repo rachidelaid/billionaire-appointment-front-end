@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './style.module.css';
 import Billionare from '../../components/Billionare';
-import { back, fetchBillionaires, next } from '../../redux/billionaires';
+import {
+  back, fetchBillionaires, next,
+} from '../../redux/billionaires';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -10,7 +12,7 @@ const Home = () => {
     dispatch(fetchBillionaires());
   }, []);
 
-  const data = useSelector((state) => state.billionaires.current);
+  const data = useSelector((state) => state.billionaires.limit);
   const offset = useSelector((state) => state.billionaires.offset);
   const total = useSelector((state) => state.billionaires.total);
   const nextClick = () => {
@@ -28,7 +30,7 @@ const Home = () => {
       </div>
       <div className={style.list}>
         {
-        data.map((item) => <Billionare item={item} key={item.name} />)
+        data.map((item) => <Billionare item={item} key={item.id} />)
       }
       </div>
       {
