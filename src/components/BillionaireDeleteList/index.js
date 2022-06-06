@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import style from './style.module.css';
 import { fetchBillionaires } from '../../redux/billionaires';
 
@@ -15,7 +16,7 @@ const deleteApiURL = (id) => `http://localhost:3000/api/billionaires/${id}`;
 //   return result;
 // };
 
-const BillionaireDeleteList = () => {
+const BillionaireDeleteList = ({ user }) => {
   // const [billionaires, setBillionaires] = useState([]);
   const billionaires = useSelector((state) => state.billionaires.all);
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const BillionaireDeleteList = () => {
 
     await fetch(deleteApiURL(id), {
       method: 'DELETE',
+      headers: { Authorization: `${user.token_type} ${user.access_token}` },
     })
       .then((resp) => {
         result.response = resp;
@@ -84,8 +86,8 @@ const BillionaireDeleteList = () => {
       return (
         <div className={`${style['billionaires-ctn']} ${style['d-flex']}`}>
           {
-        billionaires.map((billionaire) => renderBillionaire(billionaire))
-      }
+            billionaires.map((billionaire) => renderBillionaire(billionaire))
+          }
         </div>
       );
     }
@@ -100,6 +102,10 @@ const BillionaireDeleteList = () => {
       {renderBillionaires(billionaires)}
     </div>
   );
+};
+
+BillionaireDeleteList.propTypes = {
+  user: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default BillionaireDeleteList;
