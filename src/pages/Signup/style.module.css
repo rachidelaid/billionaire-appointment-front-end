@@ -24,7 +24,9 @@
 .card {
   color: var(--black);
   background-color: #fff;
+  /* stylelint-disable */
   width: min(90%, 25rem);
+  /* stylelint-enable */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,7 +63,7 @@
   transform: scale(0.95);
 }
 
-.option a{
+.option a {
   font-weight: bold;
 }
 
