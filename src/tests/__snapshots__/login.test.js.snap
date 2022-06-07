@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Signup Page Snapchat should render the signup page 1`] = `
+exports[`Login Page Snapshot should render the signup page 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -15,22 +15,9 @@ Object {
             class="card"
           >
             <h1>
-              Signup
+              Login
             </h1>
             <input
-              id="name"
-              placeholder="Name"
-              required=""
-              type="text"
-            />
-            <input
-              id="username"
-              placeholder="Username"
-              required=""
-              type="text"
-            />
-            <input
-              data-testid="email"
               id="email"
               placeholder="Email"
               required=""
@@ -38,15 +25,7 @@ Object {
             />
             <input
               id="password"
-              min="6"
               placeholder="Password"
-              required=""
-              type="password"
-            />
-            <input
-              id="confirmPassword"
-              min="6"
-              placeholder="Confirm Password"
               required=""
               type="password"
             />
@@ -54,18 +33,18 @@ Object {
               class="btn"
               type="submit"
             >
-              Sign Up
+              Sign In
             </button>
           </form>
           <small
             class="option"
           >
-            Already have an account?
+            Don’t have an account?
              
             <a
-              href="/login"
+              href="/signup"
             >
-              Sign In
+              Sign Up
             </a>
           </small>
         </div>
@@ -83,22 +62,9 @@ Object {
           class="card"
         >
           <h1>
-            Signup
+            Login
           </h1>
           <input
-            id="name"
-            placeholder="Name"
-            required=""
-            type="text"
-          />
-          <input
-            id="username"
-            placeholder="Username"
-            required=""
-            type="text"
-          />
-          <input
-            data-testid="email"
             id="email"
             placeholder="Email"
             required=""
@@ -106,15 +72,7 @@ Object {
           />
           <input
             id="password"
-            min="6"
             placeholder="Password"
-            required=""
-            type="password"
-          />
-          <input
-            id="confirmPassword"
-            min="6"
-            placeholder="Confirm Password"
             required=""
             type="password"
           />
@@ -122,18 +80,18 @@ Object {
             class="btn"
             type="submit"
           >
-            Sign Up
+            Sign In
           </button>
         </form>
         <small
           class="option"
         >
-          Already have an account?
+          Don’t have an account?
            
           <a
-            href="/login"
+            href="/signup"
           >
-            Sign In
+            Sign Up
           </a>
         </small>
       </div>
@@ -193,7 +151,7 @@ Object {
 }
 `;
 
-exports[`Signup Page should render the signup page 1`] = `
+exports[`Login Page should render the signup page 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -208,22 +166,9 @@ Object {
             class="card"
           >
             <h1>
-              Signup
+              Login
             </h1>
             <input
-              id="name"
-              placeholder="Name"
-              required=""
-              type="text"
-            />
-            <input
-              id="username"
-              placeholder="Username"
-              required=""
-              type="text"
-            />
-            <input
-              data-testid="email"
               id="email"
               placeholder="Email"
               required=""
@@ -231,15 +176,7 @@ Object {
             />
             <input
               id="password"
-              min="6"
               placeholder="Password"
-              required=""
-              type="password"
-            />
-            <input
-              id="confirmPassword"
-              min="6"
-              placeholder="Confirm Password"
               required=""
               type="password"
             />
@@ -247,18 +184,18 @@ Object {
               class="btn"
               type="submit"
             >
-              Sign Up
+              Sign In
             </button>
           </form>
           <small
             class="option"
           >
-            Already have an account?
+            Don’t have an account?
              
             <a
-              href="/login"
+              href="/signup"
             >
-              Sign In
+              Sign Up
             </a>
           </small>
         </div>
@@ -276,22 +213,9 @@ Object {
           class="card"
         >
           <h1>
-            Signup
+            Login
           </h1>
           <input
-            id="name"
-            placeholder="Name"
-            required=""
-            type="text"
-          />
-          <input
-            id="username"
-            placeholder="Username"
-            required=""
-            type="text"
-          />
-          <input
-            data-testid="email"
             id="email"
             placeholder="Email"
             required=""
@@ -299,15 +223,7 @@ Object {
           />
           <input
             id="password"
-            min="6"
             placeholder="Password"
-            required=""
-            type="password"
-          />
-          <input
-            id="confirmPassword"
-            min="6"
-            placeholder="Confirm Password"
             required=""
             type="password"
           />
@@ -315,18 +231,18 @@ Object {
             class="btn"
             type="submit"
           >
-            Sign Up
+            Sign In
           </button>
         </form>
         <small
           class="option"
         >
-          Already have an account?
+          Don’t have an account?
            
           <a
-            href="/login"
+            href="/signup"
           >
-            Sign In
+            Sign Up
           </a>
         </small>
       </div>
