@@ -12,7 +12,7 @@ Coming soon...
 
 ## Live version
 
-Coming soon...
+Coming soon...  
 
 ## Built With
 - React
@@ -30,14 +30,15 @@ Coming soon...
 
 ### Setup
 
-Follow [this link](https://github.com/orozCoding/hello-rails-back-end) to visit the back-end repo and start the server on localhost:3000.
+Follow [this link](https://github.com/rachidelaid/billionaire-appointment-back-end) to visit the [back-end repository](https://github.com/rachidelaid/billionaire-appointment-back-end) and start the server on localhost:3000.
 
-- clone the following repo `https://github.com/rachidelaid/billionaire-appointment-front-end`
-- cd into the directory and run `npm install` to install dependencies
+- Clone this repository `https://github.com/rachidelaid/billionaire-appointment-front-end`
+- Cd or navigate into the directory and run `npm install` to install dependencies
 - Run `npm start`
 - Visit `localhost:3001` in your browser
 
-**The front-end should run in localhost:3001.**
+Back-end should run in **localhost:3000**
+Front-end should run in **localhost:3001**
 
 # Credits
 
