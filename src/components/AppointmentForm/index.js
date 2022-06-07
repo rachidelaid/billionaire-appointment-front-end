@@ -1,24 +1,21 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import capitalize from './helper';
 import style from './style.module.css';
 
 /* eslint-disable camelcase */
-const AppointmentForm = () => {
+const AppointmentForm = ({ props }) => {
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
-  const allBillionaires = useSelector((state) => state.billionaires.all);
-  const currentBillionaireId = useSelector((state) => state.billionaires.current.id);
-  const [billionaire_id, setBillionaire_id] = useState(currentBillionaireId || '');
+
+  const [billionaire_id, setBillionaire_id] = useState(props.currentBillionaireId || '');
   const [result, setResult] = useState({
     response: null,
     data: null,
   });
 
   const navigate = useNavigate();
-  const { id: currentUserId, access_token } = useSelector((state) => (state.users.user
-    || { id: null, access_token: null }));
 
   const createAppointment = async (e) => {
     e.preventDefault();
@@ -26,14 +23,14 @@ const AppointmentForm = () => {
     let status = null;
 
     const appointment = {
-      city, date, billionaire_id, user_id: currentUserId,
+      city, date, billionaire_id, user_id: props.currentUser.id,
     };
 
     await fetch('http://localhost:3000/api/appointments', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${access_token}`,
+        Authorization: `Bearer ${props.currentUser.access_token}`,
       },
       body: JSON.stringify({ appointment }),
     })
@@ -84,7 +81,7 @@ const AppointmentForm = () => {
           <option value="" disabled>
             Billionaires List
           </option>
-          {allBillionaires.map(({ id, name }) => (
+          {props.billionaires.map(({ id, name }) => (
             <option
               key={id}
               value={id}
@@ -112,5 +109,18 @@ const AppointmentForm = () => {
   );
 };
 /* eslint-enable camelcase */
+
+AppointmentForm.defaultProps = {
+  currentBillionaireId: null,
+  currentUser: null,
+  billionaires: [],
+};
+
+AppointmentForm.propTypes = {
+  props: PropTypes.instanceOf(Object).isRequired,
+  billionaires: PropTypes.arrayOf(PropTypes.shape(PropTypes.object)), // Later will be .isRequired
+  currentBillionaireId: PropTypes.number,
+  currentUser: PropTypes.instanceOf(Object),
+};
 
 export default AppointmentForm;
