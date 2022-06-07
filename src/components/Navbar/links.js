@@ -5,7 +5,7 @@ const links = [
     permission: ['everyone', 'user', 'admin'],
   },
   {
-    path: '/appointment/new',
+    path: '/new-appointment',
     description: 'RESERVE BILLIONAIRES',
     permission: ['user', 'admin'],
   },
@@ -15,12 +15,12 @@ const links = [
     permission: ['user', 'admin'],
   },
   {
-    path: '/billionaire/new',
+    path: '/new-billionaire',
     description: 'ADD BILLIONAIRE',
-    permission: ['user', 'admin'],
+    permission: ['admin'],
   },
   {
-    path: '/billionaire/delete',
+    path: '/delete-billionaire',
     description: 'DELETE BILLIONAIRE',
     permission: ['admin'],
   },
