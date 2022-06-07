@@ -25,6 +25,10 @@
   margin: 1rem;
 }
 
+.hamburger:hover {
+  cursor: pointer;
+}
+
 .nav {
   height: 100vh;
   z-index: 1;
