@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import style from './style.module.css';
-import { fetchBillionaires } from '../../redux/billionaires';
-import { deleteBillionaire } from '../../redux/billionaires';
-
-// const deleteApiURL = (id) => `http://localhost:3000/api/billionaires/${id}`;
+import { fetchBillionaires, deleteBillionaire } from '../../redux/billionaires';
 
 const BillionaireDeleteList = ({ billionaires }) => {
   const dispatch = useDispatch();
@@ -14,29 +11,6 @@ const BillionaireDeleteList = ({ billionaires }) => {
   useEffect(() => {
     dispatch(fetchBillionaires());
   }, []);
-
-  // const deleteBillionaire = async (id) => {
-  //   const result = {
-  //     response: {},
-  //     data: {},
-  //   };
-
-  //   await fetch(deleteApiURL(id), {
-  //     method: 'DELETE',
-  //     headers: { Authorization: `${user.token_type} ${user.access_token}` },
-  //   })
-  //     .then((resp) => {
-  //       result.response = resp;
-  //       return resp.json();
-  //     })
-  //     .then((data) => {
-  //       result.data = data;
-  //       return data;
-  //     })
-  //     .catch((error) => error);
-
-  //   return result;
-  // };
 
   const handleDeleteBillionaire = async (id) => {
     const result = await dispatch(deleteBillionaire(id));
