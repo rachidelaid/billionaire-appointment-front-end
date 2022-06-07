@@ -21,6 +21,10 @@
   font-size: 2rem;
 }
 
+.hamburger {
+  margin: 1rem;
+}
+
 .nav {
   height: 100vh;
   z-index: 1;
@@ -61,12 +65,21 @@
   transition: 0.3s;
 }
 
+.logout {
+  background-color: #fd3f3f;
+  color: #fff;
+}
+
+.logout:hover {
+  background-color: red;
+  transform: scale(1);
+}
+
 .nav-footer {
   display: flex;
   flex-direction: column;
   color: var(--black);
   margin-top: auto;
-  padding-right: 1rem;
   gap: 1rem;
 }
 
@@ -108,7 +121,8 @@
   .nav {
     position: relative;
     width: 100vw;
-    background-color: #f8f8f8;
+    background-color: #fcfcfc;
+    border-right: none;
   }
 
   .nav-hide {

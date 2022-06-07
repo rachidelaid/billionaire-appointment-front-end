@@ -59,6 +59,16 @@ const Navbar = () => {
           ))}
         </ul>
         <div className={style['nav-footer']}>
+          <ul className={`${style.links} ${style['flex-center']} ${style.list}`}>
+            <li>
+              <NavLink
+                className={`${style.link} ${style.logout}`}
+                to="/logout"
+              >
+                LOGOUT
+              </NavLink>
+            </li>
+          </ul>
           <ul className={`${style.social} ${style.list}`}>
             <li>
               <a href="https://twitter.com">
