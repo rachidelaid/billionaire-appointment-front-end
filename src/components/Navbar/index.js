@@ -36,7 +36,7 @@ const Navbar = () => {
         >
           <i className="bi bi-caret-left" />
         </button>
-        <div>
+        <div className={style['logo-container']}>
           <img
             className={style.logo}
             src="https://raw.githubusercontent.com/orozCoding/billionares-pictures/main/logo/billionaires_logo.png"
