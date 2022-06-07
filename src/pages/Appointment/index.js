@@ -16,7 +16,8 @@ const Appointment = () => {
   });
 
   const navigate = useNavigate();
-  const currentUserId = useSelector((state) => (state.users.user ? state.users.user.id : 1));
+  const { id: currentUserId, access_token } = useSelector((state) => (state.users.user
+    || { id: 1, access_token: null }));
 
   const createAppointment = async (e) => {
     e.preventDefault();
@@ -29,7 +30,10 @@ const Appointment = () => {
 
     await fetch('http://localhost:3000/api/appointments', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${access_token}`,
+      },
       body: JSON.stringify({ appointment }),
     })
       .then((resp) => {
