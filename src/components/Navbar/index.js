@@ -6,7 +6,7 @@ import links from './links';
 
 const Navbar = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-  const currentUserRole = useSelector((state) => (state.users.user ? state.users.user.role : 'everyone'));
+  const currentUser = useSelector((state) => (state.users.user || { role: 'everyone' }));
 
   const activeStyle = {
     backgroundColor: 'var(--green)',
@@ -42,10 +42,17 @@ const Navbar = () => {
             src="https://raw.githubusercontent.com/orozCoding/billionares-pictures/main/logo/billionaires_logo.png"
             alt="Billionaires Appointments logo"
           />
+          {currentUser.username && (
+          <p className={style.user}>
+            Welcome
+            <br />
+            { currentUser.username }
+          </p>
+          )}
         </div>
         <ul className={`${style.links} ${style['flex-center']} ${style.list}`}>
           {links.map(({ path, description, permission }) => (
-            permission.includes(currentUserRole) && (
+            permission.includes(currentUser.role) && (
             <li key={description}>
               <NavLink
                 className={style.link}
@@ -60,14 +67,26 @@ const Navbar = () => {
         </ul>
         <div className={style['nav-footer']}>
           <ul className={`${style.links} ${style['flex-center']} ${style.list}`}>
-            <li>
-              <NavLink
-                className={`${style.link} ${style.logout}`}
-                to="/logout"
-              >
-                LOGOUT
-              </NavLink>
-            </li>
+            {currentUser.role !== 'everyone' ? (
+              <li>
+                <NavLink
+                  className={`${style.link} ${style.logout}`}
+                  to="/logout"
+                >
+                  LOGOUT
+                </NavLink>
+              </li>
+            ) : (
+              <li>
+                <NavLink
+                  className={style.link}
+                  to="/login"
+                >
+                  Sign In
+                </NavLink>
+              </li>
+            )}
+
           </ul>
           <ul className={`${style.social} ${style.list}`}>
             <li>
