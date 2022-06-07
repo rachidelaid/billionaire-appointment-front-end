@@ -17,8 +17,8 @@ describe('Login Page Elements', () => {
   });
 
   it('should show the email input', async () => {
-    const emailInput = await screen.findByPlaceholderText('Email');
-    expect(emailInput).toBeInTheDocument();
+    const usernameInput = await screen.findByPlaceholderText('Username');
+    expect(usernameInput).toBeInTheDocument();
   });
 
   it('should show the password input', async () => {
@@ -36,15 +36,15 @@ describe('Login Page Errors Handler', () => {
   it('should show the wrong email error', async () => {
     render(<Wrapper><Login /></Wrapper>);
 
-    const emailInput = await screen.findByPlaceholderText('Email');
+    const usernameInput = await screen.findByPlaceholderText('Email');
     const passwordInput = await screen.findByPlaceholderText('Password');
-    fireEvent.change(emailInput, { target: { value: 'test@mail.com' } });
+    fireEvent.change(usernameInput, { target: { value: 'randomUsername' } });
     fireEvent.change(passwordInput, { target: { value: '123456789' } });
     const signinButton = await screen.findByText('Sign In');
     fireEvent.click(signinButton);
 
     const alert = await screen.findByRole('alert');
     expect(alert).toBeInTheDocument();
-    expect(alert).toHaveTextContent('wrong email or password');
+    expect(alert).toHaveTextContent('wrong username or password');
   });
 });

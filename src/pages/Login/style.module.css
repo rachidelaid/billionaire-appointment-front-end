@@ -29,12 +29,21 @@
   border-radius: 1rem;
 }
 
+.card label {
+  width: 100%;
+}
+
 .card input {
   border-radius: 1rem;
   padding: 0.5rem;
   border: 1px solid var(--green);
+  color: var(--black) !important;
   outline: none;
   width: 100%;
+}
+
+.card label:focus-within {
+  color: var(--green);
 }
 
 .btn {
@@ -57,7 +66,7 @@
   transform: scale(0.95);
 }
 
-.option a{
+.option a {
   font-weight: bold;
 }
 

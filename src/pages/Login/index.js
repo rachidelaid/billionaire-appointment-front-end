@@ -20,12 +20,12 @@ const Login = () => {
     e.preventDefault();
 
     const {
-      email, password,
+      username, password,
     } = e.target.elements;
 
     const user = {
       grant_type: 'password',
-      email: email.value.trim(),
+      username: username.value.trim(),
       password: password.value.trim(),
       client_id: process.env.REACT_APP_CLIENT_ID,
       client_secret: process.env.REACT_APP_CLIENT_SECRET,
@@ -41,9 +41,15 @@ const Login = () => {
           <h1>Login</h1>
           {(user && user.error)
             && <p role="alert" className={style.error}>{user.error}</p>}
+          <label htmlFor="username">
+            Username
+            <input type="text" id="username" placeholder="Username" required />
+          </label>
 
-          <input type="email" id="email" placeholder="Email" required />
-          <input type="password" id="password" placeholder="Password" required />
+          <label htmlFor="password">
+            Password
+            <input type="password" id="password" placeholder="Password" required />
+          </label>
 
           <button type="submit" className={style.btn}>Sign In</button>
         </form>
