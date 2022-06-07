@@ -4,7 +4,7 @@
 
 This is the React front-end repository for an appointments web-app. We use React for the front-end, and Ruby on Rails for the back-end.
 
-Visit the [Back-end repository.](https://github.com/orozCoding/hello-rails-back-end)
+Visit the [Back-end repository.](https://github.com/rachidelaid/billionaire-appointment-back-end)
 
 ## Preview
 
