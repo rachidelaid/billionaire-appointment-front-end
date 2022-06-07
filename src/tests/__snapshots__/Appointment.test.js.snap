@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Appointments Component should appear login message if user is not logged in 1`] = `
+<div
+  class="login-required"
+>
+  <hr
+    class="line"
+  />
+  You need to login in order to make an appointment.
+</div>
+`;
+
+exports[`Appointments Component should render welcome text 1`] = `
+<h1
+  class="heading"
+>
+  BOOK A BILLIONAIRE
+</h1>
+`;

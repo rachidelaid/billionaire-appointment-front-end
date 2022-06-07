@@ -1,0 +1,59 @@
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  padding: 1rem;
+  background: url("https://www.zastavki.com/pictures/1920x1080/2013/Aviation_A_small_private_plane_in_flight_043452_23.jpg") no-repeat center, var(--green);
+  background-size: cover;
+  height: 100vh;
+  background-blend-mode: soft-light;
+  flex-direction: column;
+}
+
+.information {
+  flex-direction: column;
+}
+
+.heading,
+.description {
+  color: #fff;
+}
+
+.heading {
+  font-family: var(--font-bold);
+  letter-spacing: 0.5rem;
+  text-align: center;
+}
+
+.line {
+  width: 40%;
+  margin: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.description {
+  width: 65%;
+  margin-bottom: 1rem;
+}
+
+.login-required {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+@media only screen and (max-width: 670px) {
+  .line,
+  .description {
+    width: 90%;
+  }
+
+  .container {
+    background-size: cover;
+    background-position: 30%;
+  }
+}
