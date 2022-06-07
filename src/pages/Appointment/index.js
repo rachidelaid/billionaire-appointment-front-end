@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import style from './style.module.css';
-import billionaires, { capitalize } from './helper';
+import capitalize from './helper';
 
 /* eslint-disable camelcase */
 const Appointment = () => {
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
+  const allBillionaires = useSelector((state) => state.billionaires.all);
   const currentBillionaireId = useSelector((state) => state.billionaires.current.id);
   const [billionaire_id, setBillionaire_id] = useState(currentBillionaireId || '');
   const [result, setResult] = useState({
@@ -91,7 +92,7 @@ const Appointment = () => {
             <option value="" disabled>
               Billionaires List
             </option>
-            {billionaires.map(({ id, name }) => (
+            {allBillionaires.map(({ id, name }) => (
               <option
                 key={id}
                 value={id}
