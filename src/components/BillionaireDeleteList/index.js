@@ -3,10 +3,11 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import style from './style.module.css';
 import { fetchBillionaires } from '../../redux/billionaires';
+import { deleteBillionaire } from '../../redux/billionaires';
 
-const deleteApiURL = (id) => `http://localhost:3000/api/billionaires/${id}`;
+// const deleteApiURL = (id) => `http://localhost:3000/api/billionaires/${id}`;
 
-const BillionaireDeleteList = ({ user, billionaires }) => {
+const BillionaireDeleteList = ({ billionaires }) => {
   const dispatch = useDispatch();
   const [alert, setAlert] = useState(null);
 
@@ -14,34 +15,33 @@ const BillionaireDeleteList = ({ user, billionaires }) => {
     dispatch(fetchBillionaires());
   }, []);
 
-  const deleteBillionaire = async (id) => {
-    const result = {
-      response: {},
-      data: {},
-    };
+  // const deleteBillionaire = async (id) => {
+  //   const result = {
+  //     response: {},
+  //     data: {},
+  //   };
 
-    await fetch(deleteApiURL(id), {
-      method: 'DELETE',
-      headers: { Authorization: `${user.token_type} ${user.access_token}` },
-    })
-      .then((resp) => {
-        result.response = resp;
-        return resp.json();
-      })
-      .then((data) => {
-        result.data = data;
-        return data;
-      })
-      .catch((error) => error);
+  //   await fetch(deleteApiURL(id), {
+  //     method: 'DELETE',
+  //     headers: { Authorization: `${user.token_type} ${user.access_token}` },
+  //   })
+  //     .then((resp) => {
+  //       result.response = resp;
+  //       return resp.json();
+  //     })
+  //     .then((data) => {
+  //       result.data = data;
+  //       return data;
+  //     })
+  //     .catch((error) => error);
 
-    return result;
-  };
+  //   return result;
+  // };
 
   const handleDeleteBillionaire = async (id) => {
-    const result = await deleteBillionaire(id);
-    if (result.response.ok) {
-      setAlert(result.data);
-      dispatch(fetchBillionaires());
+    const result = await dispatch(deleteBillionaire(id));
+    if (result.payload) {
+      setAlert(['Billionaire successfully deleted']);
     }
   };
 
@@ -87,7 +87,6 @@ const BillionaireDeleteList = ({ user, billionaires }) => {
 };
 
 BillionaireDeleteList.propTypes = {
-  user: PropTypes.instanceOf(Object).isRequired,
   billionaires: PropTypes.instanceOf(Object).isRequired,
 };
 

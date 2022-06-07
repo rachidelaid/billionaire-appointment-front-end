@@ -36,6 +36,20 @@ const addBillionaire = createAsyncThunk('/billionaires/add', async (billionaire,
   return result;
 });
 
+const deleteBillionaire = createAsyncThunk('/billionaires/delete', async (id, { getState }) => {
+  const { user } = getState().users;
+
+  const response = await fetch(`${apiURL}/${id}`, {
+    method: 'DELETE',
+    headers: { Authorization: `${user.token_type} ${user.access_token}` },
+  });
+
+  if (response.ok) {
+    return id;
+  }
+  return false;
+});
+
 const initialState = {
   all: [],
   limit: [],
@@ -75,8 +89,15 @@ const billionaireSlice = createSlice({
         state.all = [action.payload, ...state.all];
       }
     });
+    builder.addCase(deleteBillionaire.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.all = state.all.filter((billionaire) => billionaire.id !== action.payload);
+      }
+    });
   },
 });
 export const { next, back } = billionaireSlice.actions;
-export { fetchBillionaires, fetchCurrentBillionaire, addBillionaire };
+export {
+  fetchBillionaires, fetchCurrentBillionaire, addBillionaire, deleteBillionaire,
+};
 export default billionaireSlice.reducer;
