@@ -8,20 +8,25 @@
   display: none;
 }
 
-.hamburger {
+.container {
+  display: flex;
+  margin-left: 1rem;
+}
+
+.hamburger,
+.nav-hide {
   display: block;
+  border: none;
+  background-color: unset;
+  font-size: 2rem;
 }
 
 .nav {
-  height: 100%;
-  position: fixed;
+  height: 100vh;
   z-index: 1;
-  top: 0;
-  left: 0;
   overflow-x: hidden;
   transition: 0.5s;
   border-right: 3px solid #f8f8f8;
-  margin-left: 1rem;
 }
 
 .logo {
@@ -52,6 +57,8 @@
 .link:hover {
   background-color: var(--orange);
   color: #fff;
+  transform: scale(1.1);
+  transition: 0.3s;
 }
 
 .nav-footer {
@@ -70,7 +77,25 @@
   font-size: 1.2rem;
 }
 
+.social li a:hover {
+  color: var(--green);
+  transition: 0.3s;
+}
+
 .copyright {
   font-size: 0.7rem;
   margin-bottom: 1rem;
+}
+
+.nav-hide {
+  background-color: var(--green);
+  color: #fff;
+  align-self: flex-end;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  border-top-left-radius: 45%;
+  border-bottom-left-radius: 45%;
+}
+
+.nav-hide:hover {
+  background-color: #a6d313;
 }

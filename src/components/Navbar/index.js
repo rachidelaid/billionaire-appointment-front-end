@@ -14,7 +14,7 @@ const Navbar = () => {
   const currentUserRole = 'admin';
 
   return (
-    <>
+    <div className={style.container}>
       <button
         type="button"
         onClick={() => {
@@ -89,7 +89,7 @@ const Navbar = () => {
           <small className={style.copyright}>© 2022 BOAS & R.A.M.P - RAMP</small>
         </div>
       </nav>
-    </>
+    </div>
   );
 };
 export default Navbar;
