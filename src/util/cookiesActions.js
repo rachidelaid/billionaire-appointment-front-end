@@ -1,5 +1,5 @@
 export const setCookie = (token) => {
-  document.cookie = `refresh_token=${token}; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure`;
+  document.cookie = `refresh_token=${token}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/; SameSite=None; Secure`;
 };
 
 export const deleteCookie = () => {

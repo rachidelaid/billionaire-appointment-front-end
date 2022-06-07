@@ -40,7 +40,7 @@ const Login = () => {
         <form className={style.card} onSubmit={handleSubmit}>
           <h1>Login</h1>
           {(user && user.error)
-            && (user.error.map((err) => <p key={err.length} className={style.error}>{err}</p>))}
+            && <p role="alert" className={style.error}>{user.error}</p>}
 
           <input type="email" id="email" placeholder="Email" required />
           <input type="password" id="password" placeholder="Password" required />
