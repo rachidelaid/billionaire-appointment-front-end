@@ -1,58 +1,31 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import style from './style.module.css';
+import { addBillionaire } from '../../redux/billionaires';
 
-const apiURL = 'http://localhost:3000/api/billionaires';
+const BillionaireForm = () => {
+  const [alert, setAlert] = useState(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-const postBillionaire = async (form, user) => {
-  const result = {
-    response: {},
-    data: {},
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
 
-  await fetch(apiURL, {
-    method: 'POST',
-    mode: 'cors',
-    cache: 'no-cache',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `${user.token_type} ${user.access_token}`,
-    },
-    redirect: 'follow',
-    referrerPolicy: 'no-referrer',
-    body: JSON.stringify({
+    const billionaire = {
       name: form.name.value,
       title: form.title.value,
       price: form.price.value,
       image: form.image.value,
       description: form.description.value,
-    }),
-  })
-    .then((resp) => {
-      result.response = resp;
-      return resp.json();
-    })
-    .then((data) => {
-      result.data = data;
-      return data;
-    });
-  return result;
-};
+    };
 
-const BillionaireForm = ({ user }) => {
-  const [alert, setAlert] = useState(null);
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    let post = await postBillionaire(form, user);
-    if (post.response.ok) {
-      navigate(`/details/${post.data.id}`);
-    } else if (!post.response.ok) {
-      const arr = Object.entries(post.data);
+    let post = await dispatch(addBillionaire(billionaire));
+    if (post.payload.id) {
+      navigate(`/details/${post.payload.id}`);
+    } else if (!post.payload.id) {
+      const arr = Object.entries(post.payload);
       setAlert(arr);
       post = null;
     }
@@ -92,10 +65,6 @@ const BillionaireForm = ({ user }) => {
       </form>
     </div>
   );
-};
-
-BillionaireForm.propTypes = {
-  user: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default BillionaireForm;
