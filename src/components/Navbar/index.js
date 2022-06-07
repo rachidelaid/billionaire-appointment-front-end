@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import style from './style.module.css';
 import links from './links';
 
 const Navbar = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const currentUserRole = useSelector((state) => (state.users.user ? state.users.user.role : 'everyone'));
 
   const activeStyle = {
     backgroundColor: 'var(--green)',
     color: 'white',
   };
-
-  const currentUserRole = 'admin';
 
   return (
     <div className={style.container}>
