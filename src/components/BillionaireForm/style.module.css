@@ -20,7 +20,7 @@
   gap: 15px;
 }
 
-form {
+.form {
   width: 100%;
   gap: 10px;
   padding: 2rem;
@@ -29,18 +29,18 @@ form {
   background-color: #fff;
 }
 
-form label {
+.form label {
   display: flex;
   flex-direction: column;
 }
 
-form label p {
+.form label p {
   font-weight: bold;
   letter-spacing: 2px;
 }
 
-form input,
-form textarea {
+.form input,
+.form textarea {
   border-radius: 1rem;
   padding: 0.5rem;
   border: 1px solid var(--green);
@@ -48,15 +48,15 @@ form textarea {
   width: 100%;
 }
 
-form input {
+.form input {
   text-align: center;
 }
 
-form textarea {
+.form textarea {
   width: 100%;
 }
 
-form input[type=submit] {
+.form input[type=submit] {
   border: 1px solid #fff;
   border-radius: 2rem;
   padding: 0.5rem 2rem;
