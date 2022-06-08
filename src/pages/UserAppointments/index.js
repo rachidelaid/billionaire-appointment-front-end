@@ -36,6 +36,7 @@ const UserAppointments = () => {
       <div className={style.appointments}>
         {appointments.map((appointment) => (
           <div key={appointment.id} className={style.appointment}>
+            <h2 className={style['billionaire-name']}>{billionaires[appointment.billionaire_id - 1].name}</h2>
             <img src={billionaires[appointment.billionaire_id - 1].image} alt={`${billionaires[appointment.billionaire_id - 1].name} logo`} className={style.img} />
             <p>
               Location:&#160;
