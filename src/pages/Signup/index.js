@@ -47,15 +47,30 @@ const Signup = () => {
         <form className={style.card} onSubmit={handleSubmit}>
           <h1>Signup</h1>
 
-          {error && <p className={style.error}>{error}</p>}
+          {error && <p role="alert" className={style.error}>{error}</p>}
           {(user && user.error)
-            && (user.error.map((err) => <p key={err.length} className={style.error}>{err}</p>))}
+            && (user.error.map((err) => <p role="alert" key={err.length} className={style.error}>{err}</p>))}
 
-          <input type="text" id="name" placeholder="Name" required />
-          <input type="text" id="username" placeholder="Username" required />
-          <input type="email" data-testid="email" id="email" placeholder="Email" required />
-          <input type="password" id="password" placeholder="Password" min={6} required />
-          <input type="password" id="confirmPassword" placeholder="Confirm Password" min={6} required />
+          <label htmlFor="name">
+            Name
+            <input type="text" id="name" placeholder="Name" required />
+          </label>
+          <label htmlFor="username">
+            Username
+            <input type="text" id="username" placeholder="Username" required />
+          </label>
+          <label htmlFor="email">
+            Email
+            <input type="email" id="email" placeholder="Email" required />
+          </label>
+          <label htmlFor="password">
+            Password
+            <input type="password" id="password" placeholder="Password" min={6} required />
+          </label>
+          <label htmlFor="confirmPassword">
+            Confirm Password
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" min={6} required />
+          </label>
 
           <button type="submit" className={style.btn}>Sign Up</button>
         </form>

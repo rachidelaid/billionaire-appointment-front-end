@@ -15,12 +15,6 @@
   gap: 0.2rem;
 }
 
-.error {
-  font-size: 0.8rem;
-  color: red;
-  margin-bottom: -0.8rem;
-}
-
 .card {
   color: var(--black);
   background-color: #fff;
@@ -78,4 +72,10 @@
 
 .option a:hover {
   text-decoration: underline;
+}
+
+.error {
+  font-size: 0.8rem;
+  color: red;
+  margin-bottom: -0.8rem;
 }
