@@ -46,6 +46,7 @@ const Navbar = () => {
         type="button"
         style={{ opacity: !isNavExpanded ? 1 : 0 }}
         onClick={toggleMenu}
+        data-testid="showNav"
         className={style.hamburger}
       >
         <i className="bi bi-list" />
@@ -89,7 +90,7 @@ const Navbar = () => {
         </ul>
         <div className={style['nav-footer']}>
           <ul className={`${style.links} ${style['flex-center']} ${style.list}`}>
-            {currentUser.role !== 'everyone' ? (
+            {currentUser.name ? (
               <li>
                 <button
                   type="button"

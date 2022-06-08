@@ -83,6 +83,7 @@
   border: none;
   background-color: #fd3f3f;
   color: #fff;
+  cursor: pointer;
 }
 
 .logout:hover {
