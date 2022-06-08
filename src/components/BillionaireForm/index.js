@@ -39,7 +39,7 @@ const BillionaireForm = () => {
 
   return (
     <div className={`${style.col} ${style['d-flex']}`}>
-      <form onSubmit={handleSubmit} className={`${style['d-flex']} ${style.col} ${style['form-']}`}>
+      <form onSubmit={handleSubmit} className={`${style['d-flex']} ${style.col} ${style.form}`}>
         {alert ? renderAlert(alert) : null}
         <label htmlFor="name">
           <p>Name:</p>
