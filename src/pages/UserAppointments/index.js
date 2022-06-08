@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import style from './style.module.css';
 import { fetchAppointments, deleteAppointment } from '../../redux/appointments';
-import billionaires, { readableTime } from './billionairesMock';
+import billionaires from './billionairesMock';
 
 const UserAppointments = () => {
   const dispatch = useDispatch();
@@ -25,21 +25,31 @@ const UserAppointments = () => {
   };
 
   return (
-    <>
+    <div className={style.container}>
       <header className={style.header}>
-        <h1>Your Appointments</h1>
+        <h1 className={style.title}>
+          {user && (user.name).toUpperCase()}
+          {' '}
+          APPOINTMENTS
+        </h1>
       </header>
-      <div>
+      <div className={style.appointments}>
         {appointments.map((appointment) => (
-          <div key={appointment.id}>
-            <img src={billionaires[appointment.billionaire_id - 1].image} alt={`${billionaires[appointment.billionaire_id - 1].name} logo`} />
-            <p>{appointment.city}</p>
-            <p>{readableTime(appointment.created_at)}</p>
-            <button type="button" onClick={() => handleDeleteAppointment(appointment.id)}>Cancel</button>
+          <div key={appointment.id} className={style.appointment}>
+            <img src={billionaires[appointment.billionaire_id - 1].image} alt={`${billionaires[appointment.billionaire_id - 1].name} logo`} className={style.img} />
+            <p>
+              Location:&#160;
+              {appointment.city}
+            </p>
+            <p>
+              Date:&#160;
+              {appointment.date}
+            </p>
+            <button type="button" className={style.cancel} onClick={() => handleDeleteAppointment(appointment.id)}>Cancel</button>
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

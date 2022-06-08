@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: url("https://www.zastavki.com/pictures/1920x1080/2013/Aviation_A_small_private_plane_in_flight_043452_23.jpg") no-repeat center, var(--green);
+  background-size: cover;
+  background-blend-mode: soft-light;
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 0.5rem;
+}
+
+.title {
+  font-family: var(--font-bold);
+}
+
+.appointments {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  align-items: center;
+  margin: 1rem;
+  gap: 2rem;
+}
+
+.appointment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #8d8d8d;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 0.7rem;
+}
+
+.img {
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+
+.cancel {
+  border: none;
+  padding: 0.7rem 2rem;
+  margin-top: 1rem;
+  background-color: rgb(250, 66, 66);
+  color: #fff;
+  border-radius: 0.3rem;
+}
+
+@media only screen and (max-width: 1340px) {
+  .appointments {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+  .appointments {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .appointments {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .appointments {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

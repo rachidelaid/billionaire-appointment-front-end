@@ -102,5 +102,3 @@ const billionaires = [
 ];
 
 export default billionaires;
-
-export const readableTime = (time) => time.slice(0, 10);
