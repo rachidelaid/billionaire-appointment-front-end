@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import style from './style.module.css';
-import { fetchAppointments } from '../../redux/appointments';
+import { fetchAppointments, deleteAppointment } from '../../redux/appointments';
 import billionaires, { readableTime } from './billionairesMock';
 
 const UserAppointments = () => {
@@ -16,6 +16,14 @@ const UserAppointments = () => {
     }
   }, [user]);
 
+  const handleDeleteAppointment = (id) => {
+    const params = {
+      id,
+      user,
+    };
+    dispatch(deleteAppointment(params));
+  };
+
   return (
     <>
       <header className={style.header}>
@@ -27,7 +35,7 @@ const UserAppointments = () => {
             <img src={billionaires[appointment.billionaire_id - 1].image} alt={`${billionaires[appointment.billionaire_id - 1].name} logo`} />
             <p>{appointment.city}</p>
             <p>{readableTime(appointment.created_at)}</p>
-            <button type="button">Cancel</button>
+            <button type="button" onClick={() => handleDeleteAppointment(appointment.id)}>Cancel</button>
           </div>
         ))}
       </div>

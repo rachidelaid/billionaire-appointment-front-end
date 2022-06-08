@@ -13,6 +13,18 @@ const fetchAppointments = createAsyncThunk('/appointments', async (user) => {
   return response.statusText;
 });
 
+const deleteAppointment = createAsyncThunk('/appointments/delete', async ({ id, user }) => {
+  const response = await fetch(`${apiURL}/${id}`, {
+    method: 'DELETE',
+    headers: { Authorization: `${user.token_type} ${user.access_token}` },
+  });
+
+  if (response.ok) {
+    return id;
+  }
+  return false;
+});
+
 const initialState = {
   all: [],
 };
@@ -26,10 +38,15 @@ const appointmentSlice = createSlice({
     builder.addCase(fetchAppointments.fulfilled, (state, action) => {
       state.all = action.payload;
     });
+    builder.addCase(deleteAppointment.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.all = state.all.filter((appointment) => appointment.id !== action.payload);
+      }
+    });
   },
 });
 
 export {
-  fetchAppointments,
+  fetchAppointments, deleteAppointment,
 };
 export default appointmentSlice.reducer;
