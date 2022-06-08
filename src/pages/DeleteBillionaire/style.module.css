@@ -17,7 +17,6 @@
   color: white;
   align-items: center;
   justify-content: center;
-  border: 2px solid red;
 }
 
 .layer h2 {
@@ -50,7 +49,7 @@
   justify-content: center;
 }
 
-hr {
+.hr {
   border: none;
   border-top: 2px solid rgba(255, 255, 255, 0.248);
 }
