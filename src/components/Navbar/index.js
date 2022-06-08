@@ -38,6 +38,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    toggleMenu();
   };
 
   return (
@@ -80,6 +81,7 @@ const Navbar = () => {
               <NavLink
                 className={style.link}
                 to={path}
+                onClick={toggleMenu}
                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
               >
                 {description}
@@ -105,6 +107,7 @@ const Navbar = () => {
                 <NavLink
                   className={style.link}
                   to="/login"
+                  onClick={toggleMenu}
                 >
                   Sign In
                 </NavLink>
