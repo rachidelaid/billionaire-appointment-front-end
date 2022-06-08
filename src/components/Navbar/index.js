@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import style from './style.module.css';
 import links from './links';
+import { logout } from '../../redux/users';
 
 const Navbar = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(true);
@@ -10,6 +11,7 @@ const Navbar = () => {
     transform: 'translateX(0%)',
   });
   const currentUser = useSelector((state) => (state.users.user || { role: 'everyone' }));
+  const dispatch = useDispatch();
 
   const activeStyle = {
     backgroundColor: 'var(--green)',
@@ -32,6 +34,10 @@ const Navbar = () => {
         });
       }, 1);
     }
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
   };
 
   return (
@@ -85,12 +91,13 @@ const Navbar = () => {
           <ul className={`${style.links} ${style['flex-center']} ${style.list}`}>
             {currentUser.role !== 'everyone' ? (
               <li>
-                <NavLink
+                <button
+                  type="button"
                   className={`${style.link} ${style.logout}`}
-                  to="/logout"
+                  onClick={handleLogout}
                 >
                   LOGOUT
-                </NavLink>
+                </button>
               </li>
             ) : (
               <li>
