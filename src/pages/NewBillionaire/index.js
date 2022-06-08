@@ -27,7 +27,7 @@ const NewBillionaire = () => {
       <div className={`${style.layer} ${style['d-flex']} ${style.col}`}>
         <div className={`${style['form-parent']} ${style['d-flex']} ${style.col}`}>
           <h2>ADD A BILLIONAIRE</h2>
-          <hr />
+          <hr className={style.hr} />
           <div className={`${style['form-ctn']} ${style['d-flex']} ${style.col}`}>
             {renderNewBillionaireComponent(user)}
           </div>

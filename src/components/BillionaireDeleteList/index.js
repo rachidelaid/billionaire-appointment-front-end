@@ -24,7 +24,7 @@ const BillionaireDeleteList = ({ billionaires }) => {
 
     return (
       <div key={b.id} className={`${style['billionaire-ctn']} ${style['d-flex']} ${style.col}`}>
-        <img src={b.image} alt={`${b.name} profile pic`} />
+        <img src={b.image} alt={`${b.name} profile pic`} className={style.img} />
         <h3>{b.name}</h3>
         <button
           type="button"

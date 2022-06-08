@@ -28,7 +28,7 @@ const DeleteBillionaire = () => {
       <div className={`${style.layer} ${style['d-flex']} ${style.col}`}>
         <div className={`${style['delete-list-parent']} ${style['d-flex']} ${style.col}`}>
           <h2>DELETE BILLIONAIRES</h2>
-          <hr />
+          <hr className={style.hr} />
           <div className={`${style['d-flex']} ${style['delete-list-ctn']}`}>
             {handleConditionalRendering(user)}
           </div>
