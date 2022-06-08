@@ -5,7 +5,10 @@ import style from './style.module.css';
 import links from './links';
 
 const Navbar = () => {
-  const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const [isNavExpanded, setIsNavExpanded] = useState(true);
+  const [width, setWidth] = useState({
+    transform: 'translateX(0%)',
+  });
   const currentUser = useSelector((state) => (state.users.user || { role: 'everyone' }));
 
   const activeStyle = {
@@ -13,25 +16,38 @@ const Navbar = () => {
     color: 'white',
   };
 
+  const toggleMenu = () => {
+    if (isNavExpanded) {
+      setWidth({
+        transform: 'translateX(-100%)',
+      });
+      setTimeout(() => {
+        setIsNavExpanded(!isNavExpanded);
+      }, 400);
+    } else {
+      setIsNavExpanded(!isNavExpanded);
+      setTimeout(() => {
+        setWidth({
+          transform: 'translateX(0)',
+        });
+      }, 1);
+    }
+  };
+
   return (
     <div className={style.container}>
       <button
         type="button"
-        onClick={() => {
-          setIsNavExpanded(!isNavExpanded);
-        }}
-        className={
-          isNavExpanded ? style.hidden : style.hamburger
-        }
+        style={{ opacity: !isNavExpanded ? 1 : 0 }}
+        onClick={toggleMenu}
+        className={style.hamburger}
       >
         <i className="bi bi-list" />
       </button>
-      <nav className={`${style.nav} ${style['flex-center']} ${!isNavExpanded && style.hidden}`}>
+      <nav style={width} className={`${style.nav} ${style['flex-center']} ${!isNavExpanded && style.hidden}`}>
         <button
           type="button"
-          onClick={() => {
-            setIsNavExpanded(!isNavExpanded);
-          }}
+          onClick={toggleMenu}
           className={style['nav-hide']}
         >
           <i className="bi bi-caret-left" />
