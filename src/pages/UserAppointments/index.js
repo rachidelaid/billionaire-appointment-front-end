@@ -33,7 +33,7 @@ const UserAppointments = () => {
         </h1>
       </header>
       <div className={style.appointments}>
-        {!user ? <p>You need to login in order to access this page.</p>
+        {!user ? <p className={style.message}>You need to login in order to access this page.</p>
           : appointments.map((appointment) => (
             <div key={appointment.id} className={style.appointment}>
               <h2 className={style['billionaire-name']}>{billionaires[appointment.billionaire_id - 1].name}</h2>
