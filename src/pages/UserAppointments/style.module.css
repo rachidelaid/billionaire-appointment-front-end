@@ -30,6 +30,10 @@
   gap: 2rem;
 }
 
+.appointments p {
+  color: #fff;
+}
+
 .appointment {
   display: flex;
   flex-direction: column;
