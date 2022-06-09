@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import style from './style.module.css';
 import { fetchAppointments, deleteAppointment } from '../../redux/appointments';
+import ternaryFunction from './helper';
 
 const UserAppointments = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const UserAppointments = () => {
       </header>
       <div className={style.appointments}>
         {!user ? <p className={style.message}>You need to login in order to access this page.</p>
-          : appointments.map((appointment) => (
+          : ternaryFunction(appointments.length, appointments.map((appointment) => (
             <div key={appointment.id} className={style.appointment}>
               <h2 className={style['billionaire-name']}>{billionaires[appointment.billionaire_id - 1].name}</h2>
               <img src={billionaires[appointment.billionaire_id - 1].image} alt={`${billionaires[appointment.billionaire_id - 1].name} logo`} className={style.img} />
@@ -48,7 +49,7 @@ const UserAppointments = () => {
               </p>
               <button type="button" className={style.cancel} onClick={() => handleDeleteAppointment(appointment.id)}>Cancel</button>
             </div>
-          )) }
+          )), <h3 className={style.message}>No appointments yet.</h3>) }
 
       </div>
     </div>
