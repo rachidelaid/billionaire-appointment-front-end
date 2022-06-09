@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import Navbar from './components/Navbar';
 import { refreshToken } from './redux/users';
 import Details from './pages/Details';
 import Home from './pages/Home';
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/new-billionaire" element={<NewBillionaire />} />
@@ -32,7 +34,6 @@ function App() {
         <Route path="/appointments" element={<UserAppointments />} />
       </Routes>
     </BrowserRouter>
-
   );
 }
 
