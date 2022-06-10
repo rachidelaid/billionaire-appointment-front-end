@@ -1,20 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './style.module.css';
 import Billionare from '../../components/Billionare';
 import {
-  back, fetchBillionaires, next,
+  back, next,
 } from '../../redux/billionaires';
 
 const Home = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchBillionaires());
-  }, []);
-
-  const data = useSelector((state) => state.billionaires.limit);
-  const offset = useSelector((state) => state.billionaires.offset);
-  const total = useSelector((state) => state.billionaires.total);
+  const { limit: data, offset, total } = useSelector((state) => state.billionaires);
   const nextClick = () => {
     dispatch(next());
   };
@@ -30,8 +24,8 @@ const Home = () => {
       </div>
       <div className={style.list}>
         {
-        data.map((item) => <Billionare item={item} key={item.id} />)
-      }
+          data.map((item) => <Billionare item={item} key={item.id} />)
+        }
       </div>
       {
         (offset >= total - 1) ? ''
@@ -43,12 +37,12 @@ const Home = () => {
       }
       {
 
-      (offset <= 0) ? ''
-        : (
-          <button type="button" className={style.back} onClick={backClick}>
-            <i className={`bi bi-caret-left ${style['back-icon']}`} />
-          </button>
-        )
+        (offset <= 0) ? ''
+          : (
+            <button type="button" className={style.back} onClick={backClick}>
+              <i className={`bi bi-caret-left ${style['back-icon']}`} />
+            </button>
+          )
 
       }
     </div>

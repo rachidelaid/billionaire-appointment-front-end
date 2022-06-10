@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import style from './style.module.css';
-import { fetchBillionaires, deleteBillionaire } from '../../redux/billionaires';
+import { deleteBillionaire } from '../../redux/billionaires';
 
 const BillionaireDeleteList = ({ billionaires }) => {
   const dispatch = useDispatch();
   const [alert, setAlert] = useState(null);
-
-  useEffect(() => {
-    dispatch(fetchBillionaires());
-  }, []);
 
   const handleDeleteBillionaire = async (id) => {
     const result = await dispatch(deleteBillionaire(id));
