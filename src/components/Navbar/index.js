@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import style from './style.module.css';
 import links from './links';
 import { logout } from '../../redux/users';
@@ -39,6 +40,7 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logout());
     toggleMenu();
+    toast.success("You've logged out!");
   };
 
   return (
@@ -67,26 +69,26 @@ const Navbar = () => {
             alt="Billionaires Appointments logo"
           />
           {currentUser.username && (
-          <p className={style.user}>
-            Welcome
-            <br />
-            { currentUser.username }
-          </p>
+            <p className={style.user}>
+              Welcome
+              <br />
+              {currentUser.username}
+            </p>
           )}
         </div>
         <ul className={`${style.links} ${style['flex-center']} ${style.list}`}>
           {links.map(({ path, description, permission }) => (
             permission.includes(currentUser.role) && (
-            <li key={description}>
-              <NavLink
-                className={style.link}
-                to={path}
-                onClick={toggleMenu}
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                {description}
-              </NavLink>
-            </li>
+              <li key={description}>
+                <NavLink
+                  className={style.link}
+                  to={path}
+                  onClick={toggleMenu}
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                  {description}
+                </NavLink>
+              </li>
             )
           ))}
         </ul>

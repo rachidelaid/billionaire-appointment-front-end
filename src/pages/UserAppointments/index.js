@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 import style from './style.module.css';
 import { fetchAppointments, deleteAppointment } from '../../redux/appointments';
 import ternaryFunction from './helper';
@@ -22,6 +23,7 @@ const UserAppointments = () => {
       user,
     };
     dispatch(deleteAppointment(params));
+    toast.success('Appointment successfully deleted');
   };
 
   return (
@@ -49,7 +51,7 @@ const UserAppointments = () => {
               </p>
               <button type="button" className={style.cancel} onClick={() => handleDeleteAppointment(appointment.id)}>Cancel</button>
             </div>
-          )), <h3 className={style.message}>No appointments yet.</h3>) }
+          )), <h3 className={style.message}>No appointments yet.</h3>)}
 
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 import capitalize from './helper';
 import style from './style.module.css';
 
@@ -46,6 +47,7 @@ const AppointmentForm = ({ props }) => {
           response: status,
           data,
         });
+        toast.success('Appointment created successfully!');
         return data;
       });
   };
@@ -53,15 +55,15 @@ const AppointmentForm = ({ props }) => {
   return (
     <>
       {result.data && (
-      <div className={style.errors}>
-        {result.data && Object.entries(result.data).map((error) => (
-          <p key={error[0]}>
-            {capitalize(error[0])}
-            {' '}
-            {error[1]}
-          </p>
-        ))}
-      </div>
+        <div className={style.errors}>
+          {result.data && Object.entries(result.data).map((error) => (
+            <p key={error[0]}>
+              {capitalize(error[0])}
+              {' '}
+              {error[1]}
+            </p>
+          ))}
+        </div>
       )}
       <form className={style.form} onSubmit={(e) => createAppointment(e)}>
         <input

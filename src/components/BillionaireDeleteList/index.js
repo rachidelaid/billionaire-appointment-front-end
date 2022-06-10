@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 import style from './style.module.css';
 import { deleteBillionaire } from '../../redux/billionaires';
 
@@ -12,6 +13,7 @@ const BillionaireDeleteList = ({ billionaires }) => {
     const result = await dispatch(deleteBillionaire(id));
     if (result.payload) {
       setAlert(['Billionaire successfully deleted']);
+      toast.success('Billionaire successfully deleted');
     }
   };
 
