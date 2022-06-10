@@ -54,6 +54,7 @@
   width: 200px;
   height: 200px;
   object-fit: fill;
+  border-radius: 50%;
 }
 
 @media (min-width: 768px) {
@@ -62,8 +63,8 @@
   }
 
   .image {
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 350px;
   }
 
   .container {
