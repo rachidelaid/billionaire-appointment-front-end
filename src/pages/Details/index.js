@@ -1,17 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import DetailsText from '../../components/DetailsText';
 import { fetchCurrentBillionaire } from '../../redux/billionaires';
 import style from './style.module.css';
 
 const Details = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchCurrentBillionaire(id));
-  }, []);
   const item = useSelector((state) => state.billionaires.current);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (item === 'Not Found') {
+      navigate('/404');
+    }
+    dispatch(fetchCurrentBillionaire(id));
+  }, [item]);
 
   return (
     <div className={style.page}>
