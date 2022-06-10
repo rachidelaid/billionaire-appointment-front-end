@@ -7,7 +7,7 @@ import links from './links';
 import { logout } from '../../redux/users';
 
 const Navbar = () => {
-  const [isNavExpanded, setIsNavExpanded] = useState(true);
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
   const [width, setWidth] = useState({
     transform: 'translateX(0%)',
   });
