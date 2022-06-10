@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import {
+  BrowserRouter, Routes, Route,
+} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { refreshToken } from './redux/users';
 import { fetchBillionaires } from './redux/billionaires';
@@ -18,12 +20,14 @@ import Login from './pages/Login';
 import UserAppointments from './pages/UserAppointments';
 import NotFound from './pages/NotFound';
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshToken());
     dispatch(fetchBillionaires());
   }, [dispatch]);
+
+  const user = useSelector((state) => state.users.user);
 
   return (
     <BrowserRouter>
@@ -31,17 +35,17 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/new-billionaire" element={<NewBillionaire />} />
-        <Route path="/delete-billionaire" element={<DeleteBillionaire />} />
-        <Route path="/new-appointment" element={<Appointment />} />
+        <Route path="/new-billionaire" element={user && user.role === 'admin' ? <NewBillionaire /> : <Home />} />
+        <Route path="/delete-billionaire" element={user && user.role === 'admin' ? <DeleteBillionaire /> : <Home />} />
+        <Route path="/new-appointment" element={user ? <Appointment /> : <Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/details/:id" element={<Details />} />
-        <Route path="/appointments" element={<UserAppointments />} />
+        <Route path="/appointments" element={user ? <UserAppointments /> : <Login />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
