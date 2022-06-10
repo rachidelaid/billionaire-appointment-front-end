@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import { refreshToken } from './redux/users';
 import { fetchBillionaires } from './redux/billionaires';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Navbar from './components/Navbar';
 
@@ -25,6 +27,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ToastContainer />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
