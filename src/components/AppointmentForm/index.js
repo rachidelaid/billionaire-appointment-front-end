@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -9,6 +10,7 @@ import style from './style.module.css';
 const AppointmentForm = ({ props }) => {
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
+  const [openSelect, setOpenSelect] = useState(false);
 
   const [billionaire_id, setBillionaire_id] = useState(props.currentBillionaireId || '');
   const [result, setResult] = useState({
@@ -52,6 +54,11 @@ const AppointmentForm = ({ props }) => {
       });
   };
 
+  const selectBillionaire = (id) => {
+    setBillionaire_id(id);
+    setOpenSelect(false);
+  };
+
   return (
     <>
       {result.data && (
@@ -74,24 +81,25 @@ const AppointmentForm = ({ props }) => {
           onChange={(e) => setCity(e.target.value)}
           required
         />
-        <select
-          className={style['form-child']}
-          value={billionaire_id}
-          onChange={(e) => setBillionaire_id(e.target.value)}
-          required
-        >
-          <option value="" disabled>
-            Billionaires List
-          </option>
-          {props.billionaires.map(({ id, name }) => (
-            <option
-              key={id}
-              value={id}
-            >
-              {name}
-            </option>
-          ))}
-        </select>
+        <div className={style.select}>
+          {openSelect && (
+            <div className={style['select-options']}>
+              {props.billionaires.map(({ id, name }) => (
+                <span
+                  key={id}
+                  value={id}
+                  role="presentation"
+                  onClick={() => selectBillionaire(id)}
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
+          )}
+          <p className={style['select-title']} role="presentation" onClick={() => setOpenSelect(!openSelect)}>
+            {billionaire_id ? props.billionaires.find((b) => b.id === billionaire_id).name : 'Select a billionaire'}
+          </p>
+        </div>
         <input
           className={style['form-child']}
           type="date"

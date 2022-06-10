@@ -7,7 +7,8 @@
 }
 
 .form-child,
-.btn {
+.btn,
+.select-title {
   border: 1px solid #fff;
   border-radius: 2rem;
   padding: 1rem;
@@ -44,6 +45,38 @@
   flex-direction: column;
   align-items: center;
   color: #fff;
+}
+
+.select {
+  position: relative;
+}
+
+.select-title {
+  cursor: pointer;
+}
+
+.select-options {
+ position: absolute;
+ transform-origin: bottom;
+ bottom: 4rem;
+ display: flex;
+ flex-direction: column;
+ max-height: 10rem;
+ overflow-y: auto;
+ width: 100%;
+ padding: 0.5rem;
+ background-color: #639D05;
+ border-radius: 0.5rem;
+ box-shadow: 0 3px 6px -2px var(--black);
+}
+
+.select-options span {
+  padding: 0.1rem 0.3rem;
+  cursor: pointer;
+}
+
+.select-options span:hover {
+  background-color: var(--green);
 }
 
 @media only screen and (max-width: 670px) {
