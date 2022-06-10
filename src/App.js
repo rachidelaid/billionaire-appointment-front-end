@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import Navbar from './components/Navbar';
 import { refreshToken } from './redux/users';
+import { fetchBillionaires } from './redux/billionaires';
+
+import Navbar from './components/Navbar';
+
 import Details from './pages/Details';
 import Home from './pages/Home';
 import NewBillionaire from './pages/NewBillionaire';
@@ -11,7 +14,7 @@ import Appointment from './pages/Appointment';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import UserAppointments from './pages/UserAppointments';
-import { fetchBillionaires } from './redux/billionaires';
+import NotFound from './pages/NotFound';
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +35,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/details/:id" element={<Details />} />
         <Route path="/appointments" element={<UserAppointments />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
