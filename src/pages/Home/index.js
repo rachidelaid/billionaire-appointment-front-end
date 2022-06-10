@@ -18,33 +18,37 @@ const Home = () => {
 
   return (
     <div className={style.container}>
-      <div>
-        <h1 className={style.title}>TOP BILLIONAIRES</h1>
-        <h2 className={style.subtitle}>Please select a billionaire</h2>
-      </div>
-      <div className={style.list}>
-        {
-          data.map((item) => <Billionare item={item} key={item.id} />)
-        }
-      </div>
-      {
-        (offset >= total - 1) ? ''
-          : (
-            <button type="button" className={style.next} onClick={nextClick}>
-              <i className={`bi bi-caret-right ${style.icon}`} />
-            </button>
-          )
-      }
-      {
+      {!data.length ? (<p>There are no billionaires!</p>) : (
+        <>
+          <div>
+            <h1 className={style.title}>TOP BILLIONAIRES</h1>
+            <h2 className={style.subtitle}>Please select a billionaire</h2>
+          </div>
+          <div className={style.list}>
+            {
+              data.map((item) => <Billionare item={item} key={item.id} />)
+            }
+          </div>
+          {
+            (offset >= total - 1) ? ''
+              : (
+                <button type="button" className={style.next} onClick={nextClick}>
+                  <i className={`bi bi-caret-right ${style.icon}`} />
+                </button>
+              )
+          }
+          {
 
-        (offset <= 0) ? ''
-          : (
-            <button type="button" className={style.back} onClick={backClick}>
-              <i className={`bi bi-caret-left ${style['back-icon']}`} />
-            </button>
-          )
+            (offset <= 0) ? ''
+              : (
+                <button type="button" className={style.back} onClick={backClick}>
+                  <i className={`bi bi-caret-left ${style['back-icon']}`} />
+                </button>
+              )
 
-      }
+          }
+        </>
+      )}
     </div>
   );
 };
