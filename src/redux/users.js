@@ -1,11 +1,10 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { setCookie, deleteCookie, getCookie } from '../util/cookiesActions';
-
-const apiUrl = 'http://localhost:3000';
+import baseUrl from './base_url';
 
 const signup = createAsyncThunk('users/signup', async (userObject) => {
-  const resp = await fetch(`${apiUrl}/api/users`, {
+  const resp = await fetch(`${baseUrl}/api/users`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -18,7 +17,7 @@ const signup = createAsyncThunk('users/signup', async (userObject) => {
 });
 
 const login = createAsyncThunk('users/login', async (userObject) => {
-  const resp = await fetch(`${apiUrl}/oauth/token`, {
+  const resp = await fetch(`${baseUrl}/oauth/token`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -31,7 +30,7 @@ const login = createAsyncThunk('users/login', async (userObject) => {
 });
 
 const logout = createAsyncThunk('users/logout', async (userObject) => {
-  const resp = await fetch(`${apiUrl}/oauth/revoke`, {
+  const resp = await fetch(`${baseUrl}/oauth/revoke`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -47,7 +46,7 @@ const refreshToken = createAsyncThunk('users/refreshToken', async () => {
   const token = getCookie();
   if (!token) return null;
 
-  const resp = await fetch(`${apiUrl}/oauth/token`, {
+  const resp = await fetch(`${baseUrl}/oauth/token`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
