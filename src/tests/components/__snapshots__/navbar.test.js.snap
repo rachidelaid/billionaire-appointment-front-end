@@ -38,3 +38,14 @@ exports[`Navbar Component should render only billionaires link if user is not lo
   Sign In
 </a>
 `;
+
+exports[`Navbar Component should show nav 1`] = `
+<button
+  class="nav-hide"
+  type="button"
+>
+  <i
+    class="bi bi-caret-left"
+  />
+</button>
+`;

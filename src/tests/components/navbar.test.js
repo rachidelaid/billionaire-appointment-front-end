@@ -40,7 +40,7 @@ describe('Navbar Component', () => {
     expect(signinLink).toMatchSnapshot();
   });
 
-  it('should hide nav button', () => {
+  it('should show nav', () => {
     render(<Wrapper />);
 
     const navigation = screen.getByRole('navigation');
@@ -50,6 +50,6 @@ describe('Navbar Component', () => {
 
     fireEvent.click(hideNavBtn);
 
-    expect(navigation.style.transform).toEqual('translateX(-100%)');
+    expect(navigation.style.transform).toEqual('translateX(0%)');
   });
 });

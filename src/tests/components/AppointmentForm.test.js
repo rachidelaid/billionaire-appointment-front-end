@@ -29,7 +29,7 @@ const Wrapper = () => (
 describe('Appointments Component', () => {
   it('should render select tag', () => {
     render(<Wrapper />);
-    const billionaireSelect = screen.getByText('Select a billionaire');
+    const billionaireSelect = screen.getByRole('presentation');
 
     expect(billionaireSelect).toMatchSnapshot();
   });
@@ -69,7 +69,9 @@ describe('Appointments Component', () => {
       target: { value: 'London' },
     });
 
-    fireEvent.change(screen.getByRole('combobox'), { target: { value: 2 } });
+    fireEvent.click(screen.getByRole('presentation'));
+    const options = await screen.findAllByText('Ariel Camus');
+    fireEvent.click(options[0]);
 
     fireEvent.change(screen.getByPlaceholderText(/select date/i), { target: { value: '2022-05-05' } });
 
