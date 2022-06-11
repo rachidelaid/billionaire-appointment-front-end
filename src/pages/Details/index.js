@@ -8,26 +8,37 @@ import style from './style.module.css';
 const Details = () => {
   const { id } = useParams();
   const item = useSelector((state) => state.billionaires.current);
+  console.log(item);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
     if (item === 'Not Found') {
       navigate('/404');
+    } else if (!item.id) {
+      dispatch(fetchCurrentBillionaire(id));
     }
-    dispatch(fetchCurrentBillionaire(id));
   }, [item]);
 
   return (
     <div className={style.page}>
-      <div className={style.container}>
-        <section className={style['image-section']}>
-          <img src={item.image} alt={item.id} className={style.image} />
-        </section>
-        <DetailsText item={item} />
-        <Link to="/" className={style.back}>
-          <i className={`bi bi-caret-left ${style.icon}`} />
-        </Link>
-      </div>
+      {item.id && (
+        <div className={style.container}>
+          <section className={style['image-section']}>
+            {
+              item.image.includes('http')
+                ? (
+                  <img src={item.image} alt={item.id} className={style.image} />
+                ) : (
+                  <img src="https://usercontent.one/wp/www.jmventures.no/wp-content/uploads/2019/09/no_avatar.jpg" alt={item.id} className={style.image} />
+                )
+            }
+          </section>
+          <DetailsText item={item} />
+          <Link to="/" className={style.back}>
+            <i className={`bi bi-caret-left ${style.icon}`} />
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
