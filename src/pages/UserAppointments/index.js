@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import style from './style.module.css';
 import { fetchAppointments, deleteAppointment } from '../../redux/appointments';
-import ternaryFunction from './helper';
 
 const UserAppointments = () => {
   const dispatch = useDispatch();
@@ -55,15 +54,32 @@ const UserAppointments = () => {
           APPOINTMENTS
         </h1>
       </header>
-      <TransitionGroup className={style.appointments}>
-        {!user ? <p className={style.message}>You need to login in order to access this page.</p>
-          : ternaryFunction(appointments.length, appointments.map((appointment) => (
-            <CSSTransition key={appointment.id} timeout={500} classNames="fade">
-              {appointmentCard(appointment)}
-            </CSSTransition>
-          )), <h3 className={style.message}>No appointments yet.</h3>)}
+      {!user && (
+        <div className={style.appointments}>
+          <p className={style.message}>You need to login in order to access this page.</p>
+        </div>
+      )}
 
-      </TransitionGroup>
+      {
+        (user && appointments.length)
+        && (
+          <TransitionGroup className={style.appointments}>
+            {
+              appointments.map((appointment) => (
+                <CSSTransition key={appointment.id} timeout={500} classNames="fade">
+                  {appointmentCard(appointment)}
+                </CSSTransition>
+              ))
+            }
+          </TransitionGroup>
+        )
+      }
+
+      {(user && !appointments.length) && (
+        <div className={style.appointments}>
+          <h3 className={style.message}>No appointments yet.</h3>
+        </div>
+      )}
     </div>
   );
 };
