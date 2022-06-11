@@ -8,7 +8,9 @@ import {
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { limit: data, offset, total } = useSelector((state) => state.billionaires);
+  const {
+    limit: data, offset, total, all,
+  } = useSelector((state) => state.billionaires);
   const nextClick = () => {
     dispatch(next());
   };
@@ -30,7 +32,7 @@ const Home = () => {
             }
           </div>
           {
-            (offset >= total - 1) ? ''
+            (offset >= total - 1 || data[data.length - 1].id === all[all.length - 1].id) ? ''
               : (
                 <button type="button" className={style.next} onClick={nextClick}>
                   <i className={`bi bi-caret-right ${style.icon}`} />
