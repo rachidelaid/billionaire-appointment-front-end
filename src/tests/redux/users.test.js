@@ -65,10 +65,12 @@ describe('redux users', () => {
     expect(users.user).toBeTruthy();
   });
 
-  test('logout a user', async () => {
+  test('logout a user and delete the cookie', async () => {
+    document.cookie = 'refresh_token=d83';
     await store.dispatch(logout({}));
     const { users } = store.getState();
     expect(users.user).toBeFalsy();
+    expect(document.cookie).toBeFalsy();
   });
 
   test('refresh a token', async () => {
