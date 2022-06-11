@@ -65,6 +65,7 @@ const refreshToken = createAsyncThunk('users/refreshToken', async () => {
 });
 
 const handleLogin = (state, action) => {
+  state.loading = false;
   if (action.payload && action.payload.user) {
     setCookie(action.payload.token.refresh_token);
     state.user = { ...action.payload.user, ...action.payload.token };
@@ -77,6 +78,7 @@ const userSlice = createSlice({
   name: 'users',
   initialState: {
     user: null,
+    loading: true,
   },
   reducers: {
   },
