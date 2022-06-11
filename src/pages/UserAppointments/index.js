@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import style from './style.module.css';
 import { fetchAppointments, deleteAppointment } from '../../redux/appointments';
 import ternaryFunction from './helper';
@@ -35,25 +36,27 @@ const UserAppointments = () => {
           APPOINTMENTS
         </h1>
       </header>
-      <div className={style.appointments}>
+      <TransitionGroup className={style.appointments}>
         {!user ? <p className={style.message}>You need to login in order to access this page.</p>
           : ternaryFunction(appointments.length, appointments.map((appointment) => (
-            <div key={appointment.id} className={style.appointment}>
-              <h2 className={style['billionaire-name']}>{billionaires[appointment.billionaire_id - 1].name}</h2>
-              <img src={billionaires[appointment.billionaire_id - 1].image} alt={`${billionaires[appointment.billionaire_id - 1].name} logo`} className={style.img} />
-              <p>
-                Location:&#160;
-                {appointment.city}
-              </p>
-              <p>
-                Date:&#160;
-                {appointment.date}
-              </p>
-              <button type="button" className={style.cancel} onClick={() => handleDeleteAppointment(appointment.id)}>Cancel</button>
-            </div>
+            <CSSTransition key={appointment.id} timeout={500} classNames="fade">
+              <div className={style.appointment}>
+                <h2 className={style['billionaire-name']}>{billionaires[appointment.billionaire_id - 1].name}</h2>
+                <img src={billionaires[appointment.billionaire_id - 1].image} alt={`${billionaires[appointment.billionaire_id - 1].name} logo`} className={style.img} />
+                <p>
+                  Location:&#160;
+                  {appointment.city}
+                </p>
+                <p>
+                  Date:&#160;
+                  {appointment.date}
+                </p>
+                <button type="button" className={style.cancel} onClick={() => handleDeleteAppointment(appointment.id)}>Cancel</button>
+              </div>
+            </CSSTransition>
           )), <h3 className={style.message}>No appointments yet.</h3>)}
 
-      </div>
+      </TransitionGroup>
     </div>
   );
 };
