@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {
-  BrowserRouter, Routes, Route,
+  BrowserRouter, Routes, Route, Navigate,
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
@@ -35,13 +35,13 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/new-billionaire" element={user && user.role === 'admin' ? <NewBillionaire /> : <Home />} />
-        <Route path="/delete-billionaire" element={user && user.role === 'admin' ? <DeleteBillionaire /> : <Home />} />
-        <Route path="/new-appointment" element={user ? <Appointment /> : <Login />} />
+        <Route path="/new-billionaire" element={user && user.role === 'admin' ? <NewBillionaire /> : <Navigate to="/" />} />
+        <Route path="/delete-billionaire" element={user && user.role === 'admin' ? <DeleteBillionaire /> : <Navigate to="/" />} />
+        <Route path="/new-appointment" element={user ? <Appointment /> : <Navigate to="/login" />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/details/:id" element={<Details />} />
-        <Route path="/appointments" element={user ? <UserAppointments /> : <Login />} />
+        <Route path="/appointments" element={user ? <UserAppointments /> : <Navigate to="/login" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
