@@ -31,4 +31,10 @@ describe('redux appointments', () => {
     const { appointments } = store.getState();
     expect(appointments.all.length).toBe(1);
   });
+
+  test('delete appointment', async () => {
+    await store.dispatch(deleteAppointment({ id: 2, user: {} }));
+    const { appointments } = store.getState();
+    expect(appointments.all.length).toBe(0);
+  });
 });
