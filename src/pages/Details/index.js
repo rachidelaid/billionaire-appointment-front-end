@@ -8,7 +8,6 @@ import style from './style.module.css';
 const Details = () => {
   const { id } = useParams();
   const item = useSelector((state) => state.billionaires.current);
-  console.log(item);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
