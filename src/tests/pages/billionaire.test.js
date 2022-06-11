@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Wrapper from './helpers/test_wrapper';
-import Billionare from '../components/Billionare';
+import Wrapper from '../helpers/test_wrapper';
+import Billionare from '../../components/Billionare';
 /* eslint-disable no-unused-expressions */
 describe('billionaire', () => {
   const item = {

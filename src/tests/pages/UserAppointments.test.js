@@ -3,8 +3,8 @@ import {
 } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import UserAppointments from '../pages/UserAppointments';
-import store from '../redux/store';
+import UserAppointments from '../../pages/UserAppointments';
+import store from '../../redux/store';
 
 const Wrapper = () => (
   <Provider store={store}>

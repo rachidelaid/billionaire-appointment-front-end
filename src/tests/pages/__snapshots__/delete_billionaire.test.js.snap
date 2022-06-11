@@ -17,7 +17,9 @@ Object {
             <h2>
               DELETE BILLIONAIRES
             </h2>
-            <hr />
+            <hr
+              class="hr"
+            />
             <div
               class="d-flex delete-list-ctn"
             >
@@ -43,7 +45,9 @@ Object {
           <h2>
             DELETE BILLIONAIRES
           </h2>
-          <hr />
+          <hr
+            class="hr"
+          />
           <div
             class="d-flex delete-list-ctn"
           >

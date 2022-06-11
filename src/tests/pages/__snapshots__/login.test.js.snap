@@ -1,63 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`New Billionaire Page should render the Delete Billionaires page 1`] = `
+exports[`Login Page Snapshot should render the signup page 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="delete-list-component-ctn d-flex col"
+        class="container"
       >
         <div
-          class="billionaires-ctn d-flex"
+          class="wrapper"
         >
-          <div
-            class="billionaire-ctn d-flex col"
+          <form
+            class="card"
           >
-            <img
-              alt="Jeff profile pic"
-              class="img"
-              src="https://usercontent.one/wp/www.jmventures.no/wp-content/uploads/2019/09/no_avatar.jpg"
-            />
-            <h3>
-              Jeff
-            </h3>
-            <button
-              class="click"
-              type="button"
+            <h1>
+              Login
+            </h1>
+            <label
+              for="username"
             >
-              DELETE
+              Username
+              <input
+                id="username"
+                placeholder="Username"
+                required=""
+                type="text"
+              />
+            </label>
+            <label
+              for="password"
+            >
+              Password
+              <input
+                id="password"
+                placeholder="Password"
+                required=""
+                type="password"
+              />
+            </label>
+            <button
+              class="btn"
+              type="submit"
+            >
+              Sign In
             </button>
-          </div>
+          </form>
+          <small
+            class="option"
+          >
+            Don’t have an account?
+             
+            <a
+              href="/signup"
+            >
+              Sign Up
+            </a>
+          </small>
         </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="delete-list-component-ctn d-flex col"
+      class="container"
     >
       <div
-        class="billionaires-ctn d-flex"
+        class="wrapper"
       >
-        <div
-          class="billionaire-ctn d-flex col"
+        <form
+          class="card"
         >
-          <img
-            alt="Jeff profile pic"
-            class="img"
-            src="https://usercontent.one/wp/www.jmventures.no/wp-content/uploads/2019/09/no_avatar.jpg"
-          />
-          <h3>
-            Jeff
-          </h3>
-          <button
-            class="click"
-            type="button"
+          <h1>
+            Login
+          </h1>
+          <label
+            for="username"
           >
-            DELETE
+            Username
+            <input
+              id="username"
+              placeholder="Username"
+              required=""
+              type="text"
+            />
+          </label>
+          <label
+            for="password"
+          >
+            Password
+            <input
+              id="password"
+              placeholder="Password"
+              required=""
+              type="password"
+            />
+          </label>
+          <button
+            class="btn"
+            type="submit"
+          >
+            Sign In
           </button>
-        </div>
+        </form>
+        <small
+          class="option"
+        >
+          Don’t have an account?
+           
+          <a
+            href="/signup"
+          >
+            Sign Up
+          </a>
+        </small>
       </div>
     </div>
   </div>,
