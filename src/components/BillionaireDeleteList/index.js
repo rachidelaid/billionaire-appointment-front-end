@@ -22,7 +22,14 @@ const BillionaireDeleteList = ({ billionaires }) => {
 
     return (
       <div key={b.id} className={`${style['billionaire-ctn']} ${style['d-flex']} ${style.col}`}>
-        <img src={b.image} alt={`${b.name} profile pic`} className={style.img} />
+        {
+          b.image.includes('http')
+            ? (
+              <img src={b.image} alt={`${b.name} profile pic`} className={style.img} />
+            ) : (
+              <img src="https://usercontent.one/wp/www.jmventures.no/wp-content/uploads/2019/09/no_avatar.jpg" alt={`${b.name} profile pic`} className={style.img} />
+            )
+        }
         <h3>{b.name}</h3>
         <button
           type="button"

@@ -87,11 +87,17 @@ const billionaireSlice = createSlice({
     builder.addCase(addBillionaire.fulfilled, (state, action) => {
       if (action.payload.id) {
         state.all = [action.payload, ...state.all];
+        state.limit = state.all.slice(state.offset, state.offset + 3);
+        state.total = state.all.length;
+        state.offset = 0;
       }
     });
     builder.addCase(deleteBillionaire.fulfilled, (state, action) => {
       if (action.payload) {
         state.all = state.all.filter((billionaire) => billionaire.id !== action.payload);
+        state.limit = state.all.slice(state.offset, state.offset + 3);
+        state.total = state.all.length;
+        state.offset = 0;
       }
     });
   },
