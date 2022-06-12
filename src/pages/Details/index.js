@@ -13,7 +13,7 @@ const Details = () => {
   useEffect(() => {
     if (item === 'Not Found') {
       navigate('/404');
-    } else if (!item.id) {
+    } else if (!item.id || item.id !== id) {
       dispatch(fetchCurrentBillionaire(id));
     }
   }, [item]);
