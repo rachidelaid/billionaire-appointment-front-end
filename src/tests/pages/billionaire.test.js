@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 import '@testing-library/jest-dom';
 import Wrapper from '../helpers/test_wrapper';
 import Billionare from '../../components/Billionare';
@@ -26,7 +27,9 @@ describe('billionaire', () => {
   });
   it('should navigate to the speakers page when clicked', () => {
     const component = screen.queryByText('name');
-    component.click();
+    act(() => {
+      component.click();
+    });
 
     expect(/Bio/i).toBeInTheDocument;
   });
