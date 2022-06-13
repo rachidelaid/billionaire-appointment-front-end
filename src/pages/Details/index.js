@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import DetailsText from '../../components/DetailsText';
+import Loading from '../../components/Loading';
 import { fetchCurrentBillionaire } from '../../redux/billionaires';
 import style from './style.module.css';
 
 const Details = () => {
   const { id } = useParams();
-  const item = useSelector((state) => state.billionaires.current);
+  const { current: item, loading } = useSelector((state) => state.billionaires);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -20,7 +21,8 @@ const Details = () => {
 
   return (
     <div className={style.page}>
-      {item.id && (
+      {loading && <Loading />}
+      {!loading && item.id && (
         <div className={style.container}>
           <section className={style['image-section']}>
             {

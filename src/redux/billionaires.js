@@ -56,6 +56,7 @@ const initialState = {
   offset: 0,
   total: 0,
   current: {},
+  loading: false,
 };
 
 const billionaireSlice = createSlice({
@@ -84,9 +85,14 @@ const billionaireSlice = createSlice({
       state.limit = action.payload.slice(state.offset, state.offset + 3);
       state.total = action.payload.length;
     });
-    builder.addCase(fetchCurrentBillionaire.fulfilled, (state, action) => {
-      state.current = action.payload;
-    });
+    builder
+      .addCase(fetchCurrentBillionaire.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchCurrentBillionaire.fulfilled, (state, action) => {
+        state.loading = false;
+        state.current = action.payload;
+      });
     builder.addCase(addBillionaire.fulfilled, (state, action) => {
       if (action.payload.id) {
         state.all = [action.payload, ...state.all];
