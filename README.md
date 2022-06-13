@@ -1,46 +1,90 @@
-# Getting Started with Create React App and Redux
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Appointments App (Front-end)
 
-## Available Scripts
+This is the React front-end repository for an appointments web-app. We use React for the front-end, and Ruby on Rails for the back-end.
 
-In the project directory, you can run:
+Visit the [Back-end repository.](https://github.com/rachidelaid/billionaire-appointment-back-end)
 
-### `npm start`
+## Preview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![App-preview](https://github.com/orozCoding/billionares-pictures/blob/main/gif/app-prev.gif?raw=true)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Live version
 
-### `npm test`
+- [App (Front-end)](https://billionaire-appointment.netlify.app/)
+- [Back-end](https://billionaire-back-end.herokuapp.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
+- React
+- Redux
 
-### `npm run build`
+## Getting Started
+- Follow setup instructions below
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React
+- Git and Github
+- Terminal
+- Browser
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Setup
 
-### `npm run eject`
+Follow [this link](https://github.com/rachidelaid/billionaire-appointment-back-end) to visit the [back-end repository](https://github.com/rachidelaid/billionaire-appointment-back-end) and start the server on localhost:3000.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Clone this repository `https://github.com/rachidelaid/billionaire-appointment-front-end`
+- Cd or navigate into the directory and run `npm install` to install dependencies
+- Run `npm start`
+- Visit `localhost:3001` in your browser
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Suggestions:
+Back-end should run in **localhost:3000**
+Front-end should run in **localhost:3001**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Credits
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Authors
 
-## Learn More
+👤 **Angel Orozco**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- GitHub: [@orozCoding](https://github.com/orozCoding)
+- Twitter: [@orozCoding](https://twitter.com/orozCoding)
+- LinkedIn: [Angel Orozco](https://www.linkedin.com/in/angel-orozco-652230228/).
+  
+👤 **Matovu Farid**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- GitHub: [@matovu-farid](https://github.com/matovu-farid)
+- Twitter: [@matovu100](https://twitter.com/matovu100)
+- LinkedIn: [Matovu Farid](https://www.linkedin.com/in/matovu-farid-48b80257)
+  
+👤 **Pedro Guerreiro**
+
+- GitHub: [@guerreiropedr0](https://github.com/guerreiropedr0)
+- Twitter: [@guerreiropedr0](https://twitter.com/guerreiropedr0)
+- LinkedIn: [Pedro Guerreiro](https://www.linkedin.com/in/guerreiropedr0/)
+  
+👤 **Rachid El Aid**
+
+- GitHub: [@rachidelaid](https://github.com/rachidelaid)
+- Twitter: [@rachidelaid1](https://twitter.com/rachidelaid1)
+- LinkedIn: [Rachid El Aid](https://www.linkedin.com/in/angel-orozco-652230228/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- [Microverse](https://www.microverse.org/)
+- Original Design idea by [Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
