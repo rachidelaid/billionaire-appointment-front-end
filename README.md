@@ -38,6 +38,7 @@ Follow [this link](https://github.com/rachidelaid/billionaire-appointment-back-e
 - Run `npm start`
 - Visit `localhost:3001` in your browser
 
+Suggestions:
 Back-end should run in **localhost:3000**
 Front-end should run in **localhost:3001**
 
