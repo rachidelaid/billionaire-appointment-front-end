@@ -25,6 +25,7 @@
   grid-column: 1 / span 3;
   width: 200px;
   margin: auto;
+  cursor: pointer;
 }
 
 ::placeholder {

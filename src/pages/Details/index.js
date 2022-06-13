@@ -13,10 +13,10 @@ const Details = () => {
   useEffect(() => {
     if (item === 'Not Found') {
       navigate('/404');
-    } else if (!item.id || item.id !== id) {
+    } else if (!item.id || item.id !== +id) {
       dispatch(fetchCurrentBillionaire(id));
     }
-  }, []);
+  }, [item]);
 
   return (
     <div className={style.page}>
