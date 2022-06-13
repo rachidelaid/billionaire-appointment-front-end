@@ -10,7 +10,10 @@ const DetailsText = ({ item }) => (
     </header>
     <div className={style.tile}>
       <span>price</span>
-      <span>{item.price}</span>
+      <span>
+        $
+        {item.price}
+      </span>
     </div>
     <div className={style.bio}>
       <h3>Bio</h3>

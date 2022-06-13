@@ -9,7 +9,7 @@ Object {
         class="col d-flex"
       >
         <form
-          class="d-flex col form-"
+          class="d-flex col form"
         >
           <label
             for="name"
@@ -79,7 +79,7 @@ Object {
       class="col d-flex"
     >
       <form
-        class="d-flex col form-"
+        class="d-flex col form"
       >
         <label
           for="name"

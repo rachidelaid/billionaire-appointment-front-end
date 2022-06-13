@@ -3,8 +3,8 @@ import {
 } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import AppointmentForm from '../components/AppointmentForm';
-import store from '../redux/store';
+import AppointmentForm from '../../components/AppointmentForm';
+import store from '../../redux/store';
 
 const props = {
   billionaires: [{
@@ -29,12 +29,9 @@ const Wrapper = () => (
 describe('Appointments Component', () => {
   it('should render select tag', () => {
     render(<Wrapper />);
-    const billionaireSelect = screen.getByRole('combobox');
+    const billionaireSelect = screen.getByRole('presentation');
 
     expect(billionaireSelect).toMatchSnapshot();
-    fireEvent.change(billionaireSelect, { target: { value: 3 } });
-
-    expect(billionaireSelect.value).toBe('3');
   });
 
   it('should render input date', () => {
@@ -72,7 +69,9 @@ describe('Appointments Component', () => {
       target: { value: 'London' },
     });
 
-    fireEvent.change(screen.getByRole('combobox'), { target: { value: 2 } });
+    fireEvent.click(screen.getByRole('presentation'));
+    const options = await screen.findAllByText('Ariel Camus');
+    fireEvent.click(options[0]);
 
     fireEvent.change(screen.getByPlaceholderText(/select date/i), { target: { value: '2022-05-05' } });
 

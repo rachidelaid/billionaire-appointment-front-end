@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Signup from '../pages/Signup';
-import Wrapper from './helpers/test_wrapper';
+import Signup from '../../pages/Signup';
+import Wrapper from '../helpers/test_wrapper';
 
 describe('Signup Page Snapchat', () => {
   const page = render(<Wrapper><Signup /></Wrapper>);

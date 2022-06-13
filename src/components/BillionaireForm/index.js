@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import style from './style.module.css';
 import { addBillionaire } from '../../redux/billionaires';
@@ -24,6 +25,7 @@ const BillionaireForm = () => {
     let post = await dispatch(addBillionaire(billionaire));
     if (post.payload.id) {
       navigate(`/details/${post.payload.id}`);
+      toast.success('Billionaire added successfully!');
     } else if (!post.payload.id) {
       const arr = Object.entries(post.payload);
       setAlert(arr);

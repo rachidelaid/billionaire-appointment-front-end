@@ -18,6 +18,7 @@
   border: none;
   background-color: unset;
   font-size: 2rem;
+  z-index: 999;
 }
 
 .hamburger {
@@ -134,6 +135,30 @@
 .hamburger:hover,
 .nav-hide:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-height: 700px) {
+  .link {
+    padding: 0.5rem;
+  }
+}
+
+@media only screen and (max-height: 660px) {
+  .link {
+    padding: 0.3rem;
+  }
+}
+
+@media only screen and (max-height: 620px) {
+  .logo {
+    height: 180px;
+  }
+
+  .link,
+  .user,
+  .social {
+    font-size: 1rem;
+  }
 }
 
 @media only screen and (max-width: 900px) {

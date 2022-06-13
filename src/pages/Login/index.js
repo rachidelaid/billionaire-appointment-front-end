@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import style from './style.module.css';
 
 import { login } from '../../redux/users';
@@ -12,6 +13,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user && user.id) {
+      toast.success("You're logged in!");
       navigate('/');
     }
   }, [user]);

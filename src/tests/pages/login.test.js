@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Login from '../pages/Login';
-import Wrapper from './helpers/test_wrapper';
+import Login from '../../pages/Login';
+import Wrapper from '../helpers/test_wrapper';
 
 describe('Login Page Snapshot', () => {
   const page = render(<Wrapper><Login /></Wrapper>);
@@ -36,7 +36,7 @@ describe('Login Page Errors Handler', () => {
   it('should show the wrong email error', async () => {
     render(<Wrapper><Login /></Wrapper>);
 
-    const usernameInput = await screen.findByPlaceholderText('Email');
+    const usernameInput = await screen.findByPlaceholderText('Username');
     const passwordInput = await screen.findByPlaceholderText('Password');
     fireEvent.change(usernameInput, { target: { value: 'randomUsername' } });
     fireEvent.change(passwordInput, { target: { value: '123456789' } });

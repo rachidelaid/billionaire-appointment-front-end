@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { removeCurrent } from '../../redux/billionaires';
 import style from './style.module.css';
 import links from './links';
 import { logout } from '../../redux/users';
 
 const Navbar = () => {
-  const [isNavExpanded, setIsNavExpanded] = useState(true);
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
   const [width, setWidth] = useState({
-    transform: 'translateX(0%)',
+    transform: 'translateX(-100%)',
   });
+
   const currentUser = useSelector((state) => (state.users.user || { role: 'everyone' }));
   const dispatch = useDispatch();
 
@@ -39,6 +42,7 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logout());
     toggleMenu();
+    toast.success("You've logged out!");
   };
 
   return (
@@ -52,7 +56,7 @@ const Navbar = () => {
       >
         <i className="bi bi-list" />
       </button>
-      <nav style={width} className={`${style.nav} ${style['flex-center']} ${!isNavExpanded && style.hidden}`}>
+      <nav style={width} className={`${style.nav} ${style['flex-center']}`}>
         <button
           type="button"
           onClick={toggleMenu}
@@ -67,26 +71,31 @@ const Navbar = () => {
             alt="Billionaires Appointments logo"
           />
           {currentUser.username && (
-          <p className={style.user}>
-            Welcome
-            <br />
-            { currentUser.username }
-          </p>
+            <p className={style.user}>
+              Welcome
+              <br />
+              {currentUser.username}
+            </p>
           )}
         </div>
         <ul className={`${style.links} ${style['flex-center']} ${style.list}`}>
           {links.map(({ path, description, permission }) => (
             permission.includes(currentUser.role) && (
-            <li key={description}>
-              <NavLink
-                className={style.link}
-                to={path}
-                onClick={toggleMenu}
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                {description}
-              </NavLink>
-            </li>
+              <li key={description}>
+                <NavLink
+                  className={style.link}
+                  to={path}
+                  onClick={() => {
+                    toggleMenu();
+                    if (description === 'RESERVE BILLIONAIRES') {
+                      dispatch(removeCurrent());
+                    }
+                  }}
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                  {description}
+                </NavLink>
+              </li>
             )
           ))}
         </ul>

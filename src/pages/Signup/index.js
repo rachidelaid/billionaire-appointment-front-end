@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import style from './style.module.css';
 import { signup } from '../../redux/users';
 
@@ -11,6 +12,7 @@ const Signup = () => {
 
   useEffect(() => {
     if (user && user.id) {
+      toast.success("You've signed up!");
       navigate('/');
     }
   }, [user]);
