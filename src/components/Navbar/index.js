@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { removeCurrent } from '../../redux/billionaires';
 import style from './style.module.css';
 import links from './links';
 import { logout } from '../../redux/users';
@@ -84,7 +85,12 @@ const Navbar = () => {
                 <NavLink
                   className={style.link}
                   to={path}
-                  onClick={toggleMenu}
+                  onClick={() => {
+                    toggleMenu();
+                    if (description === 'RESERVE BILLIONAIRES') {
+                      dispatch(removeCurrent());
+                    }
+                  }}
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   {description}

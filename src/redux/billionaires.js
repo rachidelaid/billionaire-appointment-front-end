@@ -74,6 +74,9 @@ const billionaireSlice = createSlice({
       state.limit = state.all.slice(start, start + 3);
       state.offset -= 3;
     },
+    removeCurrent: (state) => {
+      state.current = {};
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchBillionaires.fulfilled, (state, action) => {
@@ -102,7 +105,7 @@ const billionaireSlice = createSlice({
     });
   },
 });
-export const { next, back } = billionaireSlice.actions;
+export const { next, back, removeCurrent } = billionaireSlice.actions;
 export {
   fetchBillionaires, fetchCurrentBillionaire, addBillionaire, deleteBillionaire,
 };
