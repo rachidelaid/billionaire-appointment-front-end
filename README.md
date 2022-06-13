@@ -8,11 +8,12 @@ Visit the [Back-end repository.](https://github.com/rachidelaid/billionaire-appo
 
 ## Preview
 
-Coming soon...
+![App-preview](https://github.com/orozCoding/billionares-pictures/blob/main/gif/app-prev.gif?raw=true)
 
 ## Live version
 
-Coming soon...  
+- [App (Front-end)](https://billionaire-appointment.netlify.app/)
+- [Back-end](https://billionaire-back-end.herokuapp.com/)
 
 ## Built With
 - React
