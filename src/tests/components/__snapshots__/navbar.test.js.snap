@@ -1,16 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navbar Component should hide nav button 1`] = `
-<button
-  class="nav-hide"
-  type="button"
->
-  <i
-    class="bi bi-caret-left"
-  />
-</button>
-`;
-
 exports[`Navbar Component should render logo image 1`] = `
 <img
   alt="Billionaires Appointments logo"

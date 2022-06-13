@@ -50,6 +50,6 @@ describe('Navbar Component', () => {
 
     fireEvent.click(hideNavBtn);
 
-    expect(navigation.style.transform).toEqual('translateX(0%)');
+    expect(navigation.style.transform).toEqual('translateX(-100%)');
   });
 });
