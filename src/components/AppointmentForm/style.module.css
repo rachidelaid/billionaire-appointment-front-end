@@ -56,18 +56,18 @@
 }
 
 .select-options {
- position: absolute;
- transform-origin: bottom;
- bottom: 4rem;
- display: flex;
- flex-direction: column;
- max-height: 10rem;
- overflow-y: auto;
- width: 100%;
- padding: 0.5rem;
- background-color: #639D05;
- border-radius: 0.5rem;
- box-shadow: 0 3px 6px -2px var(--black);
+  position: absolute;
+  transform-origin: bottom;
+  bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  max-height: 10rem;
+  overflow-y: auto;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #639d05;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 6px -2px var(--black);
 }
 
 .select-options span {

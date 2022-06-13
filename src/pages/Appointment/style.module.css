@@ -55,5 +55,6 @@
   .container {
     background-size: cover;
     background-position: 30%;
+    height: 100%;
   }
 }

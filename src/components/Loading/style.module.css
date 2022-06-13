@@ -19,7 +19,7 @@
   transform: scale(1.5);
 }
 
-.spinner:after {
+.spinner::after {
   content: " ";
   display: block;
   border-radius: 50%;

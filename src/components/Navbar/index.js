@@ -9,8 +9,9 @@ import { logout } from '../../redux/users';
 const Navbar = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const [width, setWidth] = useState({
-    transform: 'translateX(0%)',
+    transform: 'translateX(-100%)',
   });
+
   const currentUser = useSelector((state) => (state.users.user || { role: 'everyone' }));
   const dispatch = useDispatch();
 
@@ -54,7 +55,7 @@ const Navbar = () => {
       >
         <i className="bi bi-list" />
       </button>
-      <nav style={width} className={`${style.nav} ${style['flex-center']} ${!isNavExpanded && style.hidden}`}>
+      <nav style={width} className={`${style.nav} ${style['flex-center']}`}>
         <button
           type="button"
           onClick={toggleMenu}

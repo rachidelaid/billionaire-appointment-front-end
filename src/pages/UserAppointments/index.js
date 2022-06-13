@@ -62,17 +62,18 @@ const UserAppointments = () => {
 
       {
         (user && appointments.length)
-        && (
-          <TransitionGroup className={style.appointments}>
-            {
+          ? (
+            <TransitionGroup className={style.appointments}>
+              {
               appointments.map((appointment) => (
                 <CSSTransition key={appointment.id} timeout={500} classNames="fade">
                   {appointmentCard(appointment)}
                 </CSSTransition>
               ))
             }
-          </TransitionGroup>
-        )
+            </TransitionGroup>
+          )
+          : ''
       }
 
       {(user && !appointments.length) && (

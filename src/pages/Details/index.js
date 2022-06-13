@@ -16,7 +16,7 @@ const Details = () => {
     } else if (!item.id || item.id !== id) {
       dispatch(fetchCurrentBillionaire(id));
     }
-  }, [item]);
+  }, []);
 
   return (
     <div className={style.page}>
