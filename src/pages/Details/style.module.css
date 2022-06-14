@@ -60,7 +60,7 @@
 
 @media (min-width: 768px) {
   .back {
-    bottom: -40px;
+    bottom: 0;
   }
 
   .image {
@@ -70,9 +70,5 @@
 
   .container {
     flex-direction: row;
-  }
-
-  .page {
-    height: 80vh;
   }
 }
