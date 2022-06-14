@@ -28,27 +28,24 @@ const App = () => {
     dispatch(fetchBillionaires());
   }, [dispatch]);
 
-  const { user, loading } = useSelector((state) => state.users);
+  const { user } = useSelector((state) => state.users);
 
   return (
     <BrowserRouter>
       <ToastContainer />
       <Navbar />
-      {loading ? (<Loading />) : (
-        <>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/new-billionaire" element={user && user.role === 'admin' ? <NewBillionaire /> : <Navigate to="/" />} />
-            <Route path="/delete-billionaire" element={user && user.role === 'admin' ? <DeleteBillionaire /> : <Navigate to="/" />} />
-            <Route path="/new-appointment" element={user ? <Appointment /> : <Navigate to="/login" />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/details/:id" element={<Details />} />
-            <Route path="/appointments" element={user ? <UserAppointments /> : <Navigate to="/login" />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </>
-      )}
+      <Loading />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/new-billionaire" element={user && user.role === 'admin' ? <NewBillionaire /> : <Navigate to="/" />} />
+        <Route path="/delete-billionaire" element={user && user.role === 'admin' ? <DeleteBillionaire /> : <Navigate to="/" />} />
+        <Route path="/new-appointment" element={user ? <Appointment /> : <Navigate to="/login" />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/details/:id" element={<Details />} />
+        <Route path="/appointments" element={user ? <UserAppointments /> : <Navigate to="/login" />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </BrowserRouter>
   );
 };
