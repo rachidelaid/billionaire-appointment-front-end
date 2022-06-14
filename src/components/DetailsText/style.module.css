@@ -1,0 +1,55 @@
+
+.details {
+  max-width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.name {
+  font-family: var(--font-bold);
+  padding: 10px;
+}
+
+.title {
+  font-size: small;
+  padding: 10px;
+}
+
+.details header {
+  text-align: right;
+}
+
+.tile {
+  padding: 0.5em;
+  background-color: var(--light-gray);
+  display: flex;
+  justify-content: space-between;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 0.5rem;
+}
+
+.reserve {
+  background-color: var(--green);
+  color: aliceblue;
+  border-radius: 20px;
+  padding: 0.5em;
+  display: flex;
+  gap: 10px;
+}
+
+.reserve-div {
+  align-self: center;
+}
+
+@media (min-width: 768px) {
+  .details {
+    max-width: 350px;
+  }
+}

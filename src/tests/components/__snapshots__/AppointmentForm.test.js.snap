@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Appointments Component should create an appointment 1`] = `Promise {}`;
+
+exports[`Appointments Component should not create an appointment 1`] = `
+<button
+  class="btn"
+  type="submit"
+>
+  Book Now
+</button>
+`;
+
+exports[`Appointments Component should render input date 1`] = `
+<input
+  class="form-child"
+  placeholder="Select date"
+  required=""
+  type="date"
+  value=""
+/>
+`;
+
+exports[`Appointments Component should render select tag 1`] = `
+<p
+  class="select-title"
+  role="presentation"
+>
+  Ariel Camus
+</p>
+`;
+
+exports[`Appointments Component should render submit button 1`] = `
+<button
+  class="btn"
+  type="submit"
+>
+  Book Now
+</button>
+`;

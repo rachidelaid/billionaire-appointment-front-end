@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserAppointments Component should appear login message 1`] = `
+<p
+  class="message"
+>
+  You need to login in order to access this page.
+</p>
+`;
+
+exports[`UserAppointments Component should render welcome text 1`] = `
+<h1
+  class="title"
+>
+  NO
+   
+  APPOINTMENTS
+</h1>
+`;

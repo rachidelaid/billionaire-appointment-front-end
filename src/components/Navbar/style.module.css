@@ -1,0 +1,183 @@
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  display: flex;
+}
+
+.hamburger,
+.nav-hide {
+  display: block;
+  border: none;
+  background-color: unset;
+  font-size: 2rem;
+  z-index: 999;
+}
+
+.hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+  transition: 0.2s;
+}
+
+.user {
+  font-family: var(--font-bold);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.nav {
+  border-right: 3px solid #f8f8f8;
+  height: 100vh;
+  width: 250px;
+  z-index: 100;
+  transition: 0.5s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+}
+
+.logo {
+  height: 200px;
+}
+
+.list {
+  list-style: none;
+}
+
+.links {
+  text-align: center;
+  color: var(--black);
+  width: 100%;
+}
+
+.links li,
+.link {
+  width: 100%;
+}
+
+.link {
+  padding: 0.7rem;
+  font-family: var(--font-bold);
+  font-size: 1.3rem;
+  display: block;
+}
+
+.link:hover {
+  background-color: var(--orange);
+  color: #fff;
+  transition: 0.3s;
+}
+
+.logout {
+  border: none;
+  background-color: #fd3f3f;
+  color: #fff;
+  cursor: pointer;
+}
+
+.logout:hover {
+  background-color: red;
+  transform: scale(1);
+}
+
+.nav-footer {
+  display: flex;
+  flex-direction: column;
+  color: var(--black);
+  margin-top: auto;
+  gap: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+
+.social li a:hover {
+  color: var(--green);
+  transition: 0.3s;
+}
+
+.copyright {
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.nav-hide {
+  background-color: var(--green);
+  color: #fff;
+  align-self: flex-end;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  border-top-left-radius: 45%;
+  border-bottom-left-radius: 45%;
+}
+
+.nav-hide:hover {
+  background-color: #a6d313;
+}
+
+.hamburger:hover,
+.nav-hide:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-height: 700px) {
+  .link {
+    padding: 0.5rem;
+  }
+}
+
+@media only screen and (max-height: 660px) {
+  .link {
+    padding: 0.3rem;
+  }
+}
+
+@media only screen and (max-height: 620px) {
+  .logo {
+    height: 180px;
+  }
+
+  .link,
+  .user,
+  .social {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    margin-left: 0;
+  }
+
+  .nav {
+    width: 100vw;
+    background-color: #fcfcfc;
+    border-right: none;
+  }
+
+  .nav-hide {
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    align-self: flex-start;
+    border-top-left-radius: unset;
+    border-bottom-left-radius: unset;
+    border-top-right-radius: 45%;
+    border-bottom-right-radius: 45%;
+  }
+}

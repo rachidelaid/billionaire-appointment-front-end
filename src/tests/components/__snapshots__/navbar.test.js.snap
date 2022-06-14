@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar Component should render logo image 1`] = `
+<img
+  alt="Billionaires Appointments logo"
+  class="logo"
+  src="https://raw.githubusercontent.com/orozCoding/billionares-pictures/main/logo/billionaires_logo.png"
+/>
+`;
+
+exports[`Navbar Component should render only billionaires link if user is not logged in 1`] = `
+<a
+  aria-current="page"
+  class="link active"
+  href="/"
+  style="color: white;"
+>
+  BILLIONAIRES
+</a>
+`;
+
+exports[`Navbar Component should render only billionaires link if user is not logged in 2`] = `
+<a
+  class="link"
+  href="/login"
+>
+  Sign In
+</a>
+`;
+
+exports[`Navbar Component should show nav 1`] = `
+<button
+  class="nav-hide"
+  type="button"
+>
+  <i
+    class="bi bi-caret-left"
+  />
+</button>
+`;
