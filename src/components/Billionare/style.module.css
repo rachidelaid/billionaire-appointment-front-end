@@ -6,6 +6,7 @@
   text-align: center;
   gap: 10px;
   cursor: pointer;
+  max-width: 200px;
 }
 
 .image {

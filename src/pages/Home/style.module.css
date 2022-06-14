@@ -17,6 +17,8 @@
   gap: 30px;
   display: flex;
   flex-direction: column;
+  align-items: baseline;
+  transition: all ease 0.5s;
 }
 
 .subtitle {
@@ -68,6 +70,13 @@
     gap: 100px;
     display: flex;
     flex-direction: row;
+  }
+
+  @media only screen and (max-width: 850px) {
+    .list {
+      gap: 25px;
+      transition: all ease 0.5s;
+    }
   }
 
   .container {
