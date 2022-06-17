@@ -1,7 +1,8 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import baseUrl from './base_url';
 
-const apiURL = 'http://localhost:3000/api/appointments';
+const apiURL = `${baseUrl}/api/appointments`;
 
 const fetchAppointments = createAsyncThunk('/appointments', async (user) => {
   const response = await fetch(apiURL, {
