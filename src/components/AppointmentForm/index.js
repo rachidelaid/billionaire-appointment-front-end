@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import capitalize from './helper';
 import style from './style.module.css';
+import baseUrl from '../../redux/base_url';
 
 /* eslint-disable camelcase */
 const AppointmentForm = ({ props }) => {
@@ -29,7 +30,7 @@ const AppointmentForm = ({ props }) => {
       city, date, billionaire_id, user_id: props.currentUser.id,
     };
 
-    await fetch('http://localhost:3000/api/appointments', {
+    await fetch(`${baseUrl}/api/appointments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
